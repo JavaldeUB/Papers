@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1740855182.72932 "main.aux" "main.bbl" "main" 1740855186.3727 0
+["bibtex main"] 1740855182.72932 "main.aux" "main.bbl" "main" 1740856373.04055 0
   "./IEEEtran.bst" 1738839238 57747 7f352c4cdc6b731c74f03fae6a48280c ""
   "./bib/ieeeBibCSRRandML.bib" 1740065649 31243 70e483b247eeca89a13a530d87d1c0b1 ""
-  "main.aux" 1740855185 11978 efd467288fe316c26123e596c899cafd "pdflatex"
+  "main.aux" 1740856372 11978 efd467288fe316c26123e596c899cafd "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1740855183.01831 "c:/Users/javit/Documents/curso24_25/Investigación/UB/SIPSSLab/RFcCEntinel/JSEN_Sensor/main.tex" "main.pdf" "main" 1740855186.37325 0
+["pdflatex"] 1740856370.20812 "c:/Users/javit/Documents/curso24_25/Investigación/Papers/JSEN_Sensor/main.tex" "main.pdf" "main" 1740856373.04103 0
   "C:/Users/javit/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1740829395 84158 d77284a6843bde1e4b9764f09fb2e89e ""
   "C:/Users/javit/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1738839773 12017794 cf1cdc34608f97e57952a2fdf56ce0be ""
   "C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -223,7 +223,7 @@
   "C:/Users/javit/AppData/Local/Programs/MiKTeX/tex/latex/wrapfig/wrapfig.sty" 1044403200 26220 3701aebf80ccdef248c0c20dd062fea9 ""
   "C:/Users/javit/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "LOGO-jsen-web.eps" 1738839240 49307 e7082f545ab1d0a8057917736220841d ""
-  "c:/Users/javit/Documents/curso24_25/Investigación/UB/SIPSSLab/RFcCEntinel/JSEN_Sensor/main.tex" 1740854828 39068 269c56e8aa4d1b071c949da0c92ba971 ""
+  "c:/Users/javit/Documents/curso24_25/Investigación/Papers/JSEN_Sensor/main.tex" 1740854828 39068 269c56e8aa4d1b071c949da0c92ba971 ""
   "figures/JAV-Website-Photo.jpg" 1738839240 122538 15c3811cffc3dc255c31d7557d7a31ee ""
   "figures/fig0.png" 1738841021 281703 390db070ca563a248dd29a1238dc5716 ""
   "figures/fig1.png" 1739264808 384036 528132925ae3652874eb5b9cb27f2025 ""
@@ -239,7 +239,7 @@
   "figures/fig8_b.png" 1740067190 95198 bc88789fa6b82aa0deb53470bd4d0d1c ""
   "ieeecolor.cls" 1738839238 219944 16d157a44b27ab676675957eb7abc811 ""
   "jsen.sty" 1738839238 189 9fef9a671e8e07b7c2e2b4009f00add7 ""
-  "main.aux" 1740855185 11978 efd467288fe316c26123e596c899cafd "pdflatex"
+  "main.aux" 1740856372 11978 efd467288fe316c26123e596c899cafd "pdflatex"
   "main.bbl" 1740855182 11088 b6a212a7c7e6a756cfd0e8e2f3f47e96 "bibtex main"
   "main.tex" 1740854828 39068 269c56e8aa4d1b071c949da0c92ba971 ""
   (generated)

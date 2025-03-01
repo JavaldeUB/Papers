@@ -1,6 +1,6 @@
-PWD c:\Users\javit\Documents\curso24_25\Investigación\UB\SIPSSLab\RFcCEntinel\JSEN_Sensor
+PWD c:\Users\javit\Documents\curso24_25\Investigación\Papers\JSEN_Sensor
 INPUT C:\Users\javit\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\javit\Documents\curso24_25\Investigación\UB\SIPSSLab\RFcCEntinel\JSEN_Sensor\main.tex
+INPUT c:\Users\javit\Documents\curso24_25\Investigación\Papers\JSEN_Sensor\main.tex
 OUTPUT main.log
 INPUT C:\Users\javit\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
 INPUT C:\Users\javit\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
