@@ -1,0 +1,75 @@
+\relax 
+\citation{falcone2004,Baena2005}
+\citation{GGarcia2005,Bonache2006,Mandal2006,Gil2007,Velez2008,Zhang2009}
+\citation{Grzegorczyk2005,Stevanovic2006,Bonache2006}
+\citation{Boybay2012,Song2013,Lee2014,Lee2014_2,Ansari2015,Standaert2017,Su2019}
+\citation{}
+\citation{palanichamy2014,blekkenhorst1986}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}{}{section.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}High Sensitivity $\mu \Omega $-meter}{1}{}\protected@file@percent }
+\newlabel{sec:corrsens}{{II}{1}{}{section.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-A}System Block Diagram}{1}{}\protected@file@percent }
+\newlabel{ssec:sysBlockD}{{II-A}{1}{}{subsection.2.1}{}}
+\citation{bengtsson2012}
+\citation{bengtsson2012}
+\citation{bengtsson2012}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Block diagram of the sensor developed for corrosion monitoring in seawater. The sensitive body is a R5 grade HSLA steel tube $150$\,mm long with $13$\,mm outer diameter and $12$\,mm inner diameter. A sensor is placed inside the body in order to control the temperature during measurements. The body is attached to the electronics described on the right side. The electronics include voltage regulation, temperature measurement of the electronics, and extra ADC ADS1115 and an INA128 amplifier responsible of resistance measurement. Communications and power are provided to electronics by a rugged cable connected to the head. This head is in charge of providing power to the system, managing the measurements with the ARDUINO ($\mu $C) and communicate with an onshore facility.}}{2}{}\protected@file@percent }
+\newlabel{fig:senBlockD}{{1}{2}{}{figure.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Flow diagram of the measurement protocol. Every \textit  {t$_{m}$} the system head turns on the power supply of the sensor electronics by simply switching a relay connected to the $12$\,V battery. After $30$\,s the system head sends and ASCII character via RS485, starting the measurement algorithm in the Sensor $\mu $C. Whenever the $\mu $C finishes the measurement (typically a minute), it sends the data back to the system head. The system head checks for errors and records in an SD card added to the head. Finally it sends the data via GSM to a prefixed phone number. The system head powers off the sensor, ending the measurement cycle.}}{2}{}\protected@file@percent }
+\newlabel{fig:typCorrSensor}{{2}{2}{}{figure.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-B}Measurement of the Body Resistance}{2}{}\protected@file@percent }
+\newlabel{ssec:resMeasProt}{{II-B}{2}{}{subsection.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Design of the electronics developed for the corrosion sensor. The design differs from the prototype presented in~\cite  {bengtsson2012} in the presence of an ADC ADS1115 which increase the number of bits of the ADC to 16-bit and, therefore, increasing the resolution of the system by a factor of $64$. The plot also shows how the electronics are connected with the outside world via RS485 by connecting the SP3485 half Duplex IC with the ARDUINO Nano.}}{3}{}\protected@file@percent }
+\newlabel{fig:resMeasProt}{{3}{3}{}{figure.3}{}}
+\newlabel{eq:resRx}{{1}{3}{}{equation.1}{}}
+\newlabel{eq:totalRx}{{2}{3}{}{equation.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {II-C}Error in the Resistance Measurement}{3}{}\protected@file@percent }
+\newlabel{ssec:errorRmeas}{{II-C}{3}{}{subsection.2.3}{}}
+\newlabel{eq:errorGen}{{3}{3}{}{equation.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Sensor Prototypes}{3}{}\protected@file@percent }
+\newlabel{sec:protytpes}{{III}{3}{}{section.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Experimental Setup assembled for calibration and test purposes. (a) Hardware includes the SP3485 interface of the sensor, instrumentation electronics and the $\mu $C in charge of measurements and a control resistance of $20$\,m$\Omega $. It also incluse an extra SP3485 interface and ARDUINO Nano which simulates the System Head asking for measurement and collecting data. (b) The $\mu $C simulating the System Head is controlled by a PC via LabVIEW application running in a stand alone PC. The application sends an ASCII character to the $\mu $C in the sensor and waits for the resistance measurement. Once the data has arrived, the application stores it in a designated .txt file.}}{4}{}\protected@file@percent }
+\newlabel{fig:measSet}{{4}{4}{}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-A}Laboratory Prototype}{4}{}\protected@file@percent }
+\newlabel{ssec:labProto}{{III-A}{4}{}{subsection.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {III-B}Field Prototype}{4}{}\protected@file@percent }
+\newlabel{ssec:fieldProto}{{III-B}{4}{}{subsection.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Field Prototype design diagrams and implementation. (a) Design diagram of the system head with an MKRZero controlling the measurement, GSM connection, data collection and power handling. (b) System Head implemented inside a rugged box with two military grade connectors towards the GSM platform and the sensor respectively. (c) Design diagrams of the sensor platform and the supports for the electronics. The body is grabbed by two cable glands and sealed by two 3D printed parts with holes for the connection bars. Electronics are placed inside a cylinder made of stainless steel and anodized to reduce fouling during operation. This cylinder is also sealed with 3D printed parts with holes for cable connections. Every cable connection is sealed with epoxy in order to ensure water tightness. (d) Implementation of the Field Prototype in different steps. (e) Sensor of the Field Prototype assembled and ready to use. The rugged cable is attached to the structure by a cable gland and the power and communications wires fixed to the top sealing 3D printed part with epoxy.}}{5}{}\protected@file@percent }
+\newlabel{fig:measSet_3}{{5}{5}{}{figure.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Resistance Measurement in Corrosive Environments}{5}{}\protected@file@percent }
+\newlabel{sec:resMeasCorrEnv}{{IV}{5}{}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-A}Test and Temperature Calibration}{5}{}\protected@file@percent }
+\newlabel{ssec:tempCalibration}{{IV-A}{5}{}{subsection.4.1}{}}
+\newlabel{eq:tempRx}{{4}{5}{}{equation.4}{}}
+\citation{cramer2003A}
+\citation{cramer2003B}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Temperature calibration of the HSLA steel tube. (a) Evolution of the resistance (in m$\Omega $) with temperature measured with the electronics developed in this work. The measured resistance at $25$\,$^{\circ }$C was $1.060896$\,m$\Omega $ and the $\alpha $ coefficient was $0.012 ^{\circ }$C$^{-1}$ with a R$^{2}=0.9755$ obtained with linear curve fitting tools. (b) Prototype of the sensor body inside the climatic chamber. The temperature profile goes from $2$\,$^{\circ }$C to $40$\,$^{\circ }$C in $240$ minutes which results in temperature changes of $0.16$\,$^{\circ }$C. Samples of the resistance were recorded every 6 minutes, resulting in 40 samples.}}{6}{}\protected@file@percent }
+\newlabel{fig:tempCal}{{6}{6}{}{figure.6}{}}
+\newlabel{eq:totalR}{{5}{6}{}{equation.5}{}}
+\newlabel{eq:realRx}{{6}{6}{}{equation.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-B}Measurements in \textit  {Aqua Regia}}{6}{}\protected@file@percent }
+\newlabel{ssec:measAquaRegia}{{IV-B}{6}{}{subsection.4.2}{}}
+\citation{Yang2008}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-C}Measurements in Salt Water}{7}{}\protected@file@percent }
+\newlabel{ssec:measSaltWat}{{IV-C}{7}{}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {IV-D}Measurements in the Cantabrian Sea}{7}{}\protected@file@percent }
+\newlabel{ssec:measCantSea}{{IV-D}{7}{}{subsection.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusions}{7}{}\protected@file@percent }
+\newlabel{sec:conclusions}{{V}{7}{}{section.5}{}}
+\bibstyle{ieeetran}
+\bibdata{bibTex/ieeeBibCSRRandML}
+\@writefile{toc}{\contentsline {section}{References}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{Biographies}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Javier Alonso-Valdesueiro}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Iñaki Madinabeitia}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Iñigo Santos-Pereda}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Jean-Baptiste Jorcin}{8}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Esther Acha-Peña}{8}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Measurement of the corrosion of a HSLA steel tube of $150$\,mm length and $13$\,mm and $12$\,mm outer and inner diameter respectively inserted in \textit  {Aqua Regia} diluted in water at $50\%$. (a) Measurement setup based on the laboratory prototype presented in section~\ref {ssec:labProto}. The tube is connected to the Ohm-meter electronics as they are implemented in the Field prototype presented in section~\ref {ssec:fieldProto} but communicated with a System head simulator running in an ARDUINO NANO. The temperature of the tube is recorded by connecting a thermocouple type-K to a KEYSIGHT digital multimeter. (b) Measurement of the corrosion rate of HSLA steel samples immersed in \textit  {Aqua Regia} diluted at $50\%$. S$_{1}$ and S$_{2}$ were immersed during $3.25$ to $3.5$ hours to test repeatability and S$_{3}$ was immersed during $19$ hours. The corrosion rate decreases with time due to the increasing width of corrosion products around the samples. (c) Pictures of the samples before and after immersion in the corrosive product. After $19$ hours the sample was almost destroyed.}}{9}{}\protected@file@percent }
+\newlabel{fig:aquaRegia}{{7}{9}{}{figure.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Resistance and Temperature evolution of the R5 grade HSLA steel tube in a $50\%$ dissolution of HNO$_{3}$+$3$HCl in water. (a) Evolution of both variables with time. An abrupt change in temperature was observed at minute $44$ due to a localized corrosion effects. The tube presented holes at minute $51$ when localizaed corrosion started to dominated over homogeneous corrosion. (b) R$_{corr}$ calculated using equation~\ref {eq:realRx} where the temperature peak in minute $44$ is translated to an abrupt resistance change and evolution after the breaking point shows a high sensitivity to temperature.}}{9}{}\protected@file@percent }
+\newlabel{fig:aqRegiaResults}{{8}{9}{}{figure.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Measurements of the resistance of the R5 HSLA steel tube in two different corrosive environments. (a) First, the sensor was placed inside a $1$\,m$^{3}$ pool filled with salt water at concentration of $35$\,$\nicefrac  {g}{L}$. The sensor is connected with a rugged version of the System Head and immersed $0.5$\,m bellow the surface. The System Head is directly connected to a Raspberry Pi 4B (RPB4). Samples were recorded every $10$\,min for two days with an extraction during the second day. (b) Afer that, a copy of the sensor was placed in the Tecnalia's HarshLab facility (Cantabrian Sea, $1.8$\,km offshore) $2$\,m bellow the sea surface. The System Head is connected to a GSM platform able to upload data (resistance and temperature of the tube, status of the System Head and possible errors) every $4$ hours. (c) Plot of the resistance and temperature recorded during $2$ days when the sensor is in the environment depicted in (a). The values of the resistance are already corrected in temperature with equation~\ref {eq:realRx}. The sensor was extracted from the pool for mechanical around minute $3210$. The dispersion of the measurements was $\pm 2.05$\,$\mu \Omega $. (d) Plot of the resistance and temperature recorded during $30$ days when the sensor is in the environment depicted in (b). The values of the resistance are also corrected in temperature. The dispersion observed is $\sim $\,$\pm 11.5$\,$\mu \Omega $.}}{10}{}\protected@file@percent }
+\newlabel{fig:poolMeas}{{9}{10}{}{figure.9}{}}
+\gdef \@abspage@last{10}

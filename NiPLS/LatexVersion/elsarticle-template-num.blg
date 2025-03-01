@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: elsarticle-template-num.aux
+Reallocating 'name_of_file' (item size: 1) to 15 items.
+The style file: elsarticle-num.bst
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+Database file #1: cas-refs.bib
+Warning--empty pages in Casaca2022
+You've used 27 entries,
+            2952 wiz_defined-function locations,
+            860 strings with 10636 characters,
+and the built_in function-call counts, 7806 in all, are:
+= -- 693
+> -- 323
+< -- 2
++ -- 125
+- -- 98
+* -- 563
+:= -- 1131
+add.period$ -- 27
+call.type$ -- 27
+change.case$ -- 30
+chr.to.int$ -- 6
+cite$ -- 28
+duplicate$ -- 224
+empty$ -- 862
+format.name$ -- 122
+if$ -- 2012
+int.to.chr$ -- 0
+int.to.str$ -- 27
+missing$ -- 27
+newline$ -- 90
+num.names$ -- 27
+pop$ -- 163
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 492
+stack$ -- 0
+substring$ -- 372
+swap$ -- 28
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 48
+width$ -- 29
+write$ -- 228
+(There was 1 warning)

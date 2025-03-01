@@ -1,0 +1,59 @@
+This is 8-bit Big BibTeX version 0.99d-x4.02 ( 24.4)
+Implementation:  Microsoft(R) C/C++ for Win32
+Release version: 4.02 (16 dec 2023)
+
+The 8-bit codepage and sorting file: 88591lat.csf
+The top-level auxiliary file: main.aux
+The style file: ieeetran.bst
+I couldn't open database file bibTex/ieeeBibCSRRandML.bib
+---line 61 of file main.aux
+ : \bibdata{bibTex/ieeeBibCSRRandML
+ :                                 }
+I'm skipping whatever remains of this command
+I found no database files---while reading file main.aux
+Reallocated glb_str_ptr (elt_size=4) to 10 items from 0.
+Reallocated global_strs (elt_size=1001) to 10 items from 0.
+Reallocated glb_str_end (elt_size=4) to 10 items from 0.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--I didn't find a database entry for "falcone2004"
+Warning--I didn't find a database entry for "Baena2005"
+Warning--I didn't find a database entry for "GGarcia2005"
+Warning--I didn't find a database entry for "Bonache2006"
+Warning--I didn't find a database entry for "Mandal2006"
+Warning--I didn't find a database entry for "Gil2007"
+Warning--I didn't find a database entry for "Velez2008"
+Warning--I didn't find a database entry for "Zhang2009"
+Warning--I didn't find a database entry for "Grzegorczyk2005"
+Warning--I didn't find a database entry for "Stevanovic2006"
+Warning--I didn't find a database entry for "Boybay2012"
+Warning--I didn't find a database entry for "Song2013"
+Warning--I didn't find a database entry for "Lee2014"
+Warning--I didn't find a database entry for "Lee2014_2"
+Warning--I didn't find a database entry for "Ansari2015"
+Warning--I didn't find a database entry for "Standaert2017"
+Warning--I didn't find a database entry for "Su2019"
+Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "palanichamy2014"
+Warning--I didn't find a database entry for "blekkenhorst1986"
+Warning--I didn't find a database entry for "bengtsson2012"
+Warning--I didn't find a database entry for "cramer2003A"
+Warning--I didn't find a database entry for "cramer2003B"
+Warning--I didn't find a database entry for "Yang2008"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+
+Here's how much of BibTeX's memory you used:
+ Cites:                 0 out of 750
+ Fields:             1058 out of 5000
+ Hash table:         4645 out of 5000
+ Strings:             863 out of 4000
+ Free string pool:   7716 out of 65000
+ Wizard functions:   4087 out of 6000
+(There were 2 error messages)

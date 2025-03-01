@@ -1,0 +1,143 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Brinkmann2018}
+T.~Brinkmann, R.~Both, B.~Scalet, S.~Roudier, L.~Sancho, Jrc reference report
+  on monitoring of emissions to air and water from ied installations, EUR 29261
+  EN. Eur. IPPC Bur. Eur. Comm. Jt. Res. Cent. (2018).
+
+\bibitem{TotalG}
+T.~Group, Integrating climate into our strategy [www document],
+  \url{https://www.total.com/sites/default/files/atoms/files/total_rapport_climat_2019_en.}
+  (2019).
+
+\bibitem{Zhou2019}
+F.~Zhou, S.~Pan, W.~Chen, X.~Ni, B.~An, Monitoring of compliance with fuel
+  sulfur content regulations through unmanned aerial vehicle (uav) measurements
+  of ship emissions, Atmos. Meas. Tech. 12 (2019).
+
+\bibitem{Sironi2010}
+S.~Sironi, L.~Capelli, P.~Céntola, R.~Del~Rosso, S.~Pierucci, Odour impact
+  assessment by means of dynamic olfactometry, dispersion modelling and social
+  participation, Atmospheric Environment 44~(3) (2010) 354--360.
+
+\bibitem{cangialosi2018}
+F.~Cangialosi, G.~Intini, D.~Colucci, On line monitoring of odour nuisance at a
+  sanitary landfill for non-hazardous waste, Chem. Eng. Trans 68 (2018)
+  127--132.
+
+\bibitem{Capelli2008}
+L.~Capelli, S.~Sironi, P.~Céntola, R.~Del~Rosso, M.~Grande, Electronic noses
+  for the continuous monitoring of odours from a wastewater treatment plant at
+  specific receptors: Focus on training methods, Sensors and Actuators B:
+  Chemical 131~(1) (2008) 53--62, special Issue: Selected Papers from the 12th
+  International Symposium on Olfaction and Electronic Noses.
+
+\bibitem{Burgues2020}
+J.~Burgués, S.~Marco, Environmental chemical sensing using small drones: A
+  review, Science of The Total Environment 748 (2020) 141172.
+
+\bibitem{Burgues2021_Ar}
+J.~Burgués, M.~D. Esclapez, S.~Doñate, L.~Pastor, S.~Marco, Aerial mapping of
+  odorous gases in a wastewater treatment plant using a small drone, Remote
+  Sensing 13~(9) (2021).
+
+\bibitem{Wold1984}
+S.~Wold, A.~Ruhe, H.~Wold, W.~J. Dunn, III, The collinearity problem in linear
+  regression. the partial least squares (pls) approach to generalized inverses,
+  SIAM Journal on Scientific and Statistical Computing 5~(3) (1984) 735--743.
+
+\bibitem{Chong2005}
+I.~Chong, J.~C.H., Performance of some variable selection methods when
+  multicollinearity is present, Chemometrics and Intelligent Laboratory Systems
+  78~(1) (2005) 103--112.
+
+\bibitem{Filzmoser2009}
+P.~Filzmoser, B.~Liebmann, K.~Varmuza, Repeated double cross validation,
+  Journal of Chemometrics 23~(4) (2009) 160--171.
+
+\bibitem{Hastie2009}
+T.~Hastie, R.~Tibshirani, J.~Friedman, The Elements of Statistical Learning:
+  Data Mining, Inference, and Prediction, 2nd Edition, Springer, New York,
+  2009.
+
+\bibitem{Wold2001}
+S.~Wold, M.~Sj{\"o}str{\"o}m, L.~Eriksson, Pls-regression: A basic tool of
+  chemometrics, Chemometrics and Intelligent Laboratory Systems 58~(2) (2001)
+  109--130.
+
+\bibitem{Martens1989}
+H.~Martens, T.~Naes, Multivariate Calibration, John Wiley \& Sons, Chichester,
+  1989.
+
+\bibitem{Arlot2010}
+S.~Arlot, A.~Celisse, A survey of cross-validation procedures for model
+  selection, Statistics Surveys 4 (2010) 40--79.
+
+\bibitem{Jain1997}
+A.~K. Jain, D.~Zongker, Feature selection: Evaluation, application, and small
+  sample performance, IEEE Transactions on Pattern Analysis and Machine
+  Intelligence 19~(2) (1997) 153--158.
+
+\bibitem{Saeys2007}
+Y.~Saeys, I.~Inza, P.~Larrañaga, A review of feature selection techniques in
+  bioinformatics, Bioinformatics 23~(19) (2007) 2507--2517.
+
+\bibitem{Norgaard2000}
+L.~N\o~rgaard, A.~Saudland, J.~Wagner, J.~P. Nielsen, L.~Munck, S.~B. Engelsen,
+  Interval partial least-squares regression (ipls): A comparative chemometric
+  study with an example from near-infrared spectroscopy, Applied Spectroscopy
+  54~(3) (2000) 413--419.
+
+\bibitem{Fonollosa2013}
+J.~Fonollosa, L.~Fernández, R.~Huerta, A.~Guti{\'e}rrez-G{\'a}lvez, S.~Marco,
+  Temperature optimization of metal oxide sensor arrays using mutual
+  information, Sensors and Actuators B: Chemical 187 (2013) 331--339, selected
+  Papers from the 14th International Meeting on Chemical Sensors.
+
+\bibitem{Burgués2018}
+J.~Burgués, S.~Marco, Low power operation of temperature-modulated metal oxide
+  semiconductor gas sensors, Sensors 18~(2) (2018) 339.
+
+\bibitem{Yongjun2018}
+Y.~Zheng, S.~Yang, X.~Liu, J.~Wang, T.~Norton, J.~Chen, Y.~Tan, The
+  computational fluid dynamic modeling of downwash flow field for a six-rotor
+  uav, Frontiers of Agricultural Science and Engineering 5~(2) (2018) 159.
+
+\bibitem{Zhu2021}
+Y.~Zhu, Q.~Guo, Y.~Tang, X.~Zhu, Y.~He, H.~Huang, S.~Luo, Cfd simulation and
+  measurement of the downwash airflow of a quadrotor plant protection uav
+  during operation, Computers and Electronics in Agriculture 201 (2022) 107286.
+
+\bibitem{Burgues2021}
+J.~Burgués, M.~D. Esclapez, S.~Doñate, S.~Marco, Rhinos: A lightweight
+  portable electronic nose for real-time odor quantification in wastewater
+  treatment plants, iScience 24~(12) (2021) 103371.
+
+\bibitem{Campos2016}
+J.~L. Campos, D.~Valenzuela-Heredia, A.~Pedrouso, A.~Val~del Río, M.~Belmonte,
+  A.~Mosquera-Corral, Greenhouse gases emissions from wastewater treatment
+  plants: Minimization, treatment, and prevention, Journal of Chemistry
+  2016~(1) (2016) 3796352.
+
+\bibitem{EPA2004}
+U.~S. E.~P. Agency, \href{https://www3.epa.gov/npdes/pubs/primer.pdf}{Primer
+  for municipal wastewater treatment systems}, Tech. rep., EPA (2004).
+\newline\urlprefix\url{https://www3.epa.gov/npdes/pubs/primer.pdf}
+
+\bibitem{Casaca2022}
+C.~S. S.~L. Casaca, N.~P.~F. Henriques, E.~A.~V. Nunes, T.~A. P.~S. Simões,
+  Ventilation and deodorization system optimization of a wastewater treatment
+  plant, in: XI Congreso Ibérico IX Congreso Iberoamericano de Ciencias y
+  Técnicas del Frío, 2022.
+
+\bibitem{Taffe2021}
+P.~Taff{\'e}, When can the bland \& altman limits of agreement method be used
+  and when it should not be used, Journal of Clinical Epidemiology 137 (2021)
+  176--181.
+
+\end{thebibliography}

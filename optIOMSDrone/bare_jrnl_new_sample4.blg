@@ -1,0 +1,66 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: bare_jrnl_new_sample4.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: IEEEtran.bst
+Reallocating 'name_of_file' (item size: 1) to 20 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: bibtex/cas-refs.bib
+Warning--I didn't find a database entry for "ref1"
+Warning--I didn't find a database entry for "ref2"
+Warning--I didn't find a database entry for "ref3"
+Warning--I didn't find a database entry for "ref4"
+Warning--I didn't find a database entry for "ref5"
+Warning--I didn't find a database entry for "ref6"
+Warning--I didn't find a database entry for "ref9"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 20 entries,
+            4087 wiz_defined-function locations,
+            960 strings with 12233 characters,
+and the built_in function-call counts, 16110 in all, are:
+= -- 1312
+> -- 450
+< -- 120
++ -- 233
+- -- 91
+* -- 807
+:= -- 2432
+add.period$ -- 45
+call.type$ -- 20
+change.case$ -- 22
+chr.to.int$ -- 237
+cite$ -- 20
+duplicate$ -- 1183
+empty$ -- 1234
+format.name$ -- 108
+if$ -- 3742
+int.to.chr$ -- 0
+int.to.str$ -- 20
+missing$ -- 219
+newline$ -- 85
+num.names$ -- 22
+pop$ -- 492
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1234
+stack$ -- 0
+substring$ -- 617
+swap$ -- 974
+text.length$ -- 41
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 20
+warning$ -- 0
+while$ -- 73
+width$ -- 22
+write$ -- 227
+(There were 7 warnings)
