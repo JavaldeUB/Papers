@@ -137,54 +137,54 @@ Figure~\ref{fig:csrr}~(a) shows the structure of the CSRR used in this contribut
 
 The coupling transmission line and the dimensions of each honeycomb are as defined in~\cite{Omer2020}, so the CSRR does not introduce further uncertainty in the measurement.
 
-\section{Machine Learning Algorithms for CSSR sensors}
-\label{sec:mlCSRRs}
+\subsection{Sampling Methodology}
+\label{ssec:samplingMethod}
 
-\subsection{Measurements}
-\label{ssec:mlMeasurement}
-\subsubsection{System Characterization}
-\label{sssec:sysCharac}
-In order to characterize the response of the CSRR system to samples with different concentrations of Ethanol diluted in clean water when poured in a commercial vial (Chromacol 20-HSV), a measurement campaign was conducted. The sampling method consisted in measuring vials randomly chosen between a set of $100$ vials for each of the ethanol concentrations considered ($0$ to $96\%$ concentration diluted in clean water). Each vial was taken manually from a containing box, placed on top of the CSRR by the PLA holder and filled up with $1.2$~mL of the corresponding solution.  
-
-This method produced $100$ repetitions of the S$_{21}$ parameter for each concentration, each measured with a different vial. Figure~\ref{fig:avgData} shows the results for each concentration when averaging the $100$ measurements of the $20\dot{\log\left(|S_{21}|\right)}$ and their standard deviation in $\%$.  
-
-\begin{figure}[!t]
+\begin{figure*}[!t]
 	\centering
-	\subfigure{\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1\columnwidth]{figures/fig3_a.png}}
-	\subfigure{\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1\columnwidth]{figures/fig3_b.png}}
-	%\hfill
-	\caption{Characterization of the CSRR system when measuring concentrations of ethanol diluted in clean water and poured in commercial vials. a) Averaged $20\dot{\log\left(|S_{21}|\right)}$ response of the generated database. b) Rational model for the frequency of the minimum observed in the averaged $20\dot{\log\left(|S_{21}|\right)}$ when every concentration of ethanol in clean water is observed ($10$, $20$, $30$, $40$, $50$, $60$, $70$, $80$, and $96$~$\%$)}
-	\label{fig:avgData}
-\end{figure}
+	\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1.5\columnwidth]{figures/fig6_3.png}
+	\caption{Block diagram of the developed workflow for training the bench-top CSRR system. In Data Preparation step, the database is cleaned by extracting the actual data (features) from metadata, providing a $450\times201$ feature matrix plus a $5\times201$ baseline matrix. In the Pre-Processing step the feature matrix baseline is correcte using the baseline matrix applied to each of the rounds separately. In the Training step, the feature matrix is split into the train dataset ($300\times201$ matrix) and the test dataset ($150\times201$ matrix). These two step are common for PCA and PLSR training algorithms. Then the train dataset is introduced in a leave-one-block-out cross-validation (LOGO-CV) training scheme which produces and optimized PLSR model. In the External Test step, the performance of the optimized model is evaluated by obtaining predictions from the test dataset.}
+	\label{fig:workflow}
+	\vspace{-0.3cm}
+\end{figure*}
 
-Figure~\ref{fig:avgData}~(a) shows how the ethanol dumps the S$_{21}$ parameter of the CSRR promoting an increase of the resonance frequency. Also, the evolution of the shape of the S$_{21}$ parameter with the concentration implies a non-linear response of the system with ethanol concentration compared with other studies presented in the literature~\cite{Abdolrazzaghi2023}. Evaluating the frequency displacement of the most prominent resonance in Figure~\ref{fig:avgData}~(a), an exponential fitting of the deepest resonance results in the following expression:
+Sampling for training ML algorithms is a well established field in Statistical Learning. The main idea behind any sampling technique for ML model training is to randomize repetitions of each sample. This randomization mitigates undesired effects on the obtained dataset such as badge effects, repetition correlation and instrumental error propagation~\cite{Wu2020}. 
 
-\begin{equation}
-	\label{eq:frequFitt}
-	 C_{\%}(\nu) = \frac{p1\cdot\nu+p2}{\nu+q} 
-\end{equation} 
+In this study, samples were organized by ethanol concentration in solution. The concentrations ranged from clean water (Ethanol at $0\%$) to Ethanol ($96\%$ purity) considering the steps depicted in figure~\ref{fig:avgData}~(a). Badge solutions were prepared with the mentioned concentrations and poured in $10$ commercial vials, chosen randomly from a pool of $100$ vials.
 
-when the frequency,$\nu$ is in GHz and p1$=110.7274$~$\nicefrac{\%}{GHz^{2}}$, p2$=-257.0246$~$\nicefrac{\%}{GHz}$ and q$=-2.2893$~$GHz$. The R$^{2}$ of the fit is $0.9422$ and the RMSE$=7.9208$~$\%$. 
-  
-In Figure~\ref{fig:avgData}~(b), the standard deviation of the $100$ repetitions with respect to the averaged S$_{21}$ is presented. The uncertainty introduced by the combination of the vial variability and the modifications of the CSRR sensor produce a considerable spread of the S$_{21}$ parameter among repetitions of the same concentration level. Ranging from $25$ to $9$~dB, this standard deviation, shows the uncertainty when considering only one repetition of the measurement, making Equation~\ref{eq:frequFitt} useful only when an averaged S$_{21}$ is calculated over many different vials. hola que tal
+The $90$ vials were labelled for randomization and identification, and placed together for a day in a fridge at $5$~$^{\circ}$C. The day after, the vials were leaved out the fridge for an hour at $23$~$^{\circ}$C (temperature at the laboratory) and $5$ rounds of measurements were performed randomizing the order in which the vials were taken. Each round, consisted in ten repetitions of each concentration, where each repetition is a different vial. This provided a total of $100$ measurements. 
+Before each round, the response of the CSRR sensor unloaded (S$_{21}$) was measured and used for baseline correction of the data. In total, $455$ measurements were taken for training and test of the ML model. Each measurement consisted in 201 points of recording the $20\dot{\log\left(|S_{21}|\right)}$ from $1.6$~GHz to $3$~GHz using the NanoVNA F-V2.
+\subsection{Machine Learning Workflow}
+\label{ssec:mlWorkflow}
 
-The proposed system, must be able to determine the concentration of ethanol by measuring the SUT when poured in a random vial from the stock commercial vials in the lab. Therefore, Machine Learning algorithms are needed and a different approach for sampling the concentrations of ethanol must be designed for ML training purposes.
-\\
-\subsubsection{Sampling Method for Training Machine Learning Algorithms}
-\label{sssec:samplingML}
+ Pincipal Component Analysis (PCA) and Partial Least Squares Regressor (PLSR) are the two algorithms used for data analysis and model training in this contribution. The workflow is depicted in figure~\ref{fig:workflow} and described in the following sections.
+\subsubsection{Principal Component Analysis}
+\label{sssec:pca}
 
-Sampling for training ML algorithms is a well established field in Statistical Learning~\cite{Wu2020}. The main idea behind any sampling technique for ML model training is to randomize repetitions of each sample. This randomization mitigates undesired effects on the obtained dataset such as badge effects, repetition correlation and instrumental error propagation. 
+Principal Component Analysis (PCA) was performed on the 
+database generated as explained in section~\ref{ssec:samplingMethod}. In this analysis, the dataset was prepared and pre-processed as depicted in figure~\ref{fig:workflow} and the PCA was performed using the Statistics and Machine Learning Toolbox from MATLAB. 
 
-In this study, samples were organized by ethanol concentration in solution. The concentrations ranged from clean water (Ethanol at $0\%$) to Ethanol ($96\%$ purity) considering the steps depicted in figure~\ref{fig:avgData}~(a). Badge solutions were prepared with the mentioned concentrations and poured in $10$ commercial vials, chosen randomly from a pool of $100$ vials, leaving $10$ extra vials out for post training analysis.
+As it is shown in figure~\ref{fig:workflow}, the dataset is cleaned by extracting the metadata (labels, date of acquisition, etc.) of the database and adjusting the number of features of each repetition if necessary. Then, the data matrix ($450\times201$) is pre-processed in two steps. First, each round of measurements is corrected in its baseline by using the $20\dot{\log\left(|S_{21}|\right)}$ of the unloaded CSRR. Second, each $20\dot{\log\left(|S_{21}|\right)}$ is auto-scaled by calculating the average, $\mu_{C}$, and de standard deviation, $\sigma_{C}$, for each concentration at each round.
 
-The $90$ vials were labelled for randomization and identification purposes, and leaved together for a day in a fridge at $5$~$^{\circ}$C. The day after, the vials were leaved out the fridge for an hour at $23$~$^{\circ}$C (temperature at the laboratory) and $5$ rounds of measurements were performed randomizing the order in which the vials were taken. Each round, consisted in ten repetitions of each concentration where, each repetition is a different vial, providing $90$ measurements. Before each round, the response of the CSRR sensor unloaded (S$_{21}$) was measured and used for baseline correction of the data. In total, $455$ measurements were taken for training and test of the ML model. Each measurement consisted in 201 points of recording the $20\dot{\log\left(|S_{21}|\right)}$ from $1.6$~GHz to $3$~GHz using the NanoVNA F-V2.
+Up to $20$ PCs were considered for the analysis. The EV of the dataset was calculated for each PC and the cumulative EV was plotted. The distribution of the repetitions in the reduced vectorial space was also plotted for the first three PCs.  
 
-Figure~\ref{fig:mlMeasTaken} shows the $20\dot{\log\left(|S_{21}|\right)}$ of each measurement contained in the dataset used for ML model training and test. Some features can be spotted by simple inspection. First, the dispersion explained in section~\ref{sssec:sysCharac} is observed for each concentration. In fact, this dispersion shows how the frequency displacement of the main resonance is not enough descriptive for concentration prediction for concentrations bellow $30\%$. 
+\subsubsection{Partial Least Squares Regressor}
+\label{sssec:pls}
 
-However, features around $2.1$~GHz and $2.5$~GHz show better discrimination between samples. Also, for $20\%$ of ethanol, two repetitions show an outlier behaviour with a $20\dot{\log\left(|S_{21}|\right)}$ out of the trend shown by rest of the dataset.  
+The results from PCA analysis suggested that using every feature in the $20\dot{\log\left(|S_{21}|\right)}$ spectrum could lead to good results in quantification. The most extended predictor in this cases is the Partial Least Squares Regressor (PLSR), especially suitable for datasets with short number of repetitions per sample~\cite{Wold2001}.
 
-Also some outliers for certain concentrations ($0\%$, $20\%$ and $40\%$) were spotted in rounds $1$, $2$, $3$ and $5$. The repetitions corresponding to $40\%$ showed one outlier at each round, spotting a very different characteristics of the container vial with respect of the rest of the pool. However, the outliers from $0\%$ and $20\%$ where spotted at different rounds which points to different manipulation of the vials during measurement.        
+Before starting the PLSR training, the feature matrix was pre-processed in the same way it was done for pca analysis (see figure~\ref{fig:workflow}). The pre-processed data is then split in two different subsets. The data belonging to $6$ concentrations is used for training (training dataset) and the rest is left aside for final testing (test dataset). Therefore, the training dataset consisted in a $300\times201$ feature matrix and the test dataset in a $150\times201$. 
 
+A leave-one-block-out cross-validation (LOGO-CV) scheme is used for model training~\cite{Filzmoser2009}. This approach uses data from 4 rounds for model training and reserves one round for validation, resulting in 5 evaluations of different PLSR models. The model with best performance, in terms of Root Mean Square Error, is then selected. The LOGO-CV scheme is run for different number of Latent Variables up to 31. 
+
+Once the PLSR model is trained, its evaluation is performed by introducing the test dataset and making predictions of the concentrations. In this case, predictions for $40\%$, $60\%$ and $80\%$ concentrations were calculated with the resulting model. These concentrations were chosen intentionally for compensating the presence of outliers (in $40\%$ for example) without having into account the both ends of the considered range.
+
+\section{CSRR System Performance}
+\label{sec:csrrPerformance}
+In this section, the results from measurements, traditional characterization and ML analysis are presented. The performance of the CSRR system is evaluated in terms of the quantification of the concentration of ethanol in water. The results are discussed in terms of the traditional characterization of the system, the PCA analysis of the dataset and the performance of the PLSR model.
+
+\subsection{Acquired Database}
+\label{ssec:mlMeasurement}
 \begin{figure}[!t]
 	\centering
 	\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1\columnwidth]{figures/fig4_3.png}
@@ -193,10 +193,34 @@ Also some outliers for certain concentrations ($0\%$, $20\%$ and $40\%$) were sp
 	\vspace{-0.3cm}
 \end{figure}
 
+Figure~\ref{fig:mlMeasTaken} shows the $20\dot{\log\left(|S_{21}|\right)}$ of each measurement contained in the dataset used for ML model training and test. Some features can be spotted by simple inspection. First, a wide dispersion of the curves is observed for each concentration. In particular, dispersion of deepest resonance seems to decrease with the concentration of ethanol. 
+
+However, features around $2.1$~GHz and $2.5$~GHz show better discrimination between samples. Also, for $20\%$ of ethanol, two repetitions show an outlier behaviour with a $20\dot{\log\left(|S_{21}|\right)}$ out of the trend shown by rest of the dataset.  
+
+Second, some outliers for certain concentrations ($0\%$, $20\%$ and $40\%$) were spotted in rounds $1$, $2$, $3$ and $5$. The repetitions corresponding to $40\%$ showed one outlier at each round, spotting a very different characteristics of the container vial with respect of the rest of the pool. However, the outliers from $0\%$ and $20\%$ where spotted at different rounds which points to different manipulation of the vials during measurement.
+
+\subsection{Traditional System Characterization}
+\label{ssec:sysCharac}
+\begin{figure}[!t]
+	\centering
+	\subfigure{\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1\columnwidth]{figures/fig3_a.png}}
+	\subfigure{\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1\columnwidth]{figures/fig3_b.png}}
+	%\hfill
+	\caption{Traditional characterization of the CSRR system when measuring concentrations of ethanol diluted in clean water and poured in commercial vials. a) Averaged $20\dot{\log\left(|S_{21}|\right)}$ response of the generated database. b) Rational model for the frequency of the minimum observed in the averaged $20\dot{\log\left(|S_{21}|\right)}$ when every concentration of ethanol in clean water is observed ($10$, $20$, $30$, $40$, $50$, $60$, $70$, $80$, and $96$~$\%$)}
+	\label{fig:avgData}
+\end{figure}
+
+Following the studies presented in the literature, figure~\ref{fig:avgData}~(a) shows the averaged $20\dot{\log\left(|S_{21}|\right)}$ for each concentration. It shows how the evolution of the shape of the S$_{21}$ parameter with the concentration implies a non-linear response of the system with ethanol. Evaluating the frequency displacement of the most prominent resonance in Figure~\ref{fig:avgData}~(a)~\cite{Abdolrazzaghi2023}, a rational fitting of the deepest resonance results in the following expression:
+
+\begin{equation}
+	\label{eq:frequFitt}
+	 C_{\%}(\nu) = \frac{p1\cdot\nu+p2}{\nu+q} 
+\end{equation} 
+
+when the frequency,$\nu$ is in GHz and p1$=110.7274$~$\nicefrac{\%}{GHz^{2}}$, p2$=-257.0246$~$\nicefrac{\%}{GHz}$ and q$=-2.2893$~$GHz$. The R$^{2}$ of the fit is $0.9422$ and the RMSE$=7.9208$~$\sqrt{\%}$. The fitting was performed using the Curve Fitting Toolbox from MATLAB. This model is presented in Figure~\ref{fig:avgData}~(b).
+
 \subsection{Principal Component Analysis}
 \label{ssec:pcaAnalysis}
-
-The many features shown by the generated dataset (see figure~\ref{fig:mlMeasTaken}) suggest that an exploratory analysis of the measurements is necessary. For this purpose, a Principal Component Analysis (PCA) was performed. In this analysis, the dataset was prepared and pre-processed as depicted in figure~\ref{fig:workflow} and the PCA was performed using the Statistics and Machine Learning Toolbox from MATLAB.
 
 \begin{figure}[!t]
 	\centering
@@ -206,44 +230,20 @@ The many features shown by the generated dataset (see figure~\ref{fig:mlMeasTake
 	\vspace{-0.3cm}
 \end{figure}
 
-As it is shown in figure~\ref{fig:workflow}, the dataset is cleaned by extracting the metadata (labels, date of acquisition, etc.) of the database and adjusting the number of features of each repetition if necessary. Then, the data matrix ($450\times201$) is pre-processed in two steps. First, each round of measurements is corrected in its baseline by using the $20\dot{\log\left(|S_{21}|\right)}$ of the unloaded CSRR. Second, each $20\dot{\log\left(|S_{21}|\right)}$ is auto-scaled by calculating the average, $\mu_{C}$, and de standard deviation, $\sigma_{C}$, for each concentration at each round.
+Figures~\ref{fig:pcaAnalysis}~(a), (b) and (d), show the distribution of the repetitions in the reduced vectorial space of the extracted PCs. In both figures, the first PC shows its dominance which can be related with the ethanol concentration in solution. The spread in this component shows that, despite the careful preparation of each stock solution, the system is sensitive enough to observe relatively small variations in concentration. 
 
-As shown by figure~\ref{fig:pcaAnalysis}~(c), the $95\%$ of the Explained Variance (EV) is contained in the first four Principal Components (PCs). Most of this variance is accumulated in the first PC ($73\%$), and the rest show an EV lower than $15\%$. In particular, the fourth PC shows an EV lower than $3\%$.
+As shown by figure~\ref{fig:pcaAnalysis}~(c), the $95\%$ of the Explained Variance (EV) is contained in this first three Principal Components (PCs). Most of this variance is accumulated in the first PC ($73\%$), and the rest show an EV lower than $15\%$. 
 
-Figures~\ref{fig:pcaAnalysis}~(a) and (b), show the distribution of the repetitions in the reduced vectorial space of the extracted PCs. In both figures, the first PC shows its dominance which can be related with the ethanol concentration in solution. The spread in this component shows that, despite the careful preparation of each stock solution, the system is sensitive enough to observe relatively small variations in concentration. 
-
-Also, these figures show a spread in the second and third components which can be related to the variability introduced by the commercial vial and the actual measurement action (see figure~\ref{fig:pcaAnalysis}~(d)). Is in this variability where the outliers are observed. In particular, plot in figure~\ref{fig:pcaAnalysis}~(b) leads identify the outliers in concentrations of $0\%$, $20\%$ and $40\%$ shown in figure~\ref{fig:mlMeasTaken} and explained in section~\ref{sssec:samplingML}. 
-
-The PCA analysis summarized in figure~\ref{fig:pcaAnalysis} might lead to chose one quantification ML algorithm from the variety of possibilities. In this case, as the EV concentrates in on PC, and for shake of simplicity, a linear predictor seams to be the most adequate choice.      
+Also, these figures show a spread in the second and third components which can be related to the variability introduced by the commercial vial and the actual measurement action (see figure~\ref{fig:pcaAnalysis}~(d)). Is in this variability where the outliers are observed. In particular, plot in figure~\ref{fig:pcaAnalysis}~(b) leads identify the outliers in concentrations of $0\%$, $20\%$ and $40\%$ shown in figure~\ref{fig:mlMeasTaken}.   
 
 \subsection{Partial Least Squares Regressor}
 \label{ssec:plsRegressor}
 
-The PCA analysis presented in section~\ref{ssec:pcaAnalysis} suggests that a linear predictor of the concentration might be a good model for inference using the measurement of the $S_{21}$ parameter of a CSRR sensor embedded in the system presented in section~\ref{ssec:sysBlockD}. The most extended predictor is the Partial Least Squares Regressor (PLSR), especially suitable for datasets with short number of repetitions per sample~\cite{Wold2001}.
+Once the workflow presented in figure~\ref{fig:workflow} is performed, there are certain intermediate results that provide ideas about the performance of the obtained model. Figure~\ref{fig:plsrStatistics}~(a) shows the evolution of the Root Mean Square Error (RMSE) with the number of components of the PLSR considered during the LOGO-CV scheme iteration. 
 
-Figure~\ref{fig:workflow} shows the workflow developed for training and test of the PLSR. Once the database is acquired, in the Data Preparation step, the data is separated form metadata and adjusted to fit in a usable matrix. Also in this step, the baseline data ($20\dot{\log\left(|S_{21}|\right)}$ of the CSRR when unloaded) is separated from the database. These step results in a $450\times201$ feature matrix.
+It is observed that with $6$ Latent Variables (LVs), the MSE of the best of the 5 models coming out from the LOGO-CV scheme is minimized up to $\sim6.8$ which leads to a Root Mean Square Error in Cross Validation (RMSECV) of $\sim3.62\sqrt{\%}$.
 
-Before starting the PLSR training, the feature matrix was pre-processed. After a baseline correction of each set of $201$ features, the auto-scaling process was applied as explained in section~\ref{ssec:pcaAnalysis} so the resulting pre-processed feature matrix is the same as the used in the PCA study.   
-
-The pre-processed data is then split in two different subsets. The data belonging to $6$ concentrations is used for training (training dataset) and the rest is left aside for final testing (test dataset). Therefore, the training dataset consisted in a $300\times201$ feature matrix and the test dataset in a $150\times201$. 
-
-A double leave-one-block-out cross-validation (LOGO-CV) scheme is used for model training~\cite{Filzmoser2009}. This approach uses data from 4 rounds for model training and reserves one round for validation, resulting in 5 evaluations of different PLSR models. The model with best performance, in terms of Root Mean Square Error, is then selected. The LOGO-CV scheme is run for different number of Latent Variables up to 31. 
-
-Once the PLSR model is trained, its evaluation is performed by introducing the test dataset and making predictions of the concentrations. In this case, predictions for $40\%$, $60\%$ and $80\%$ concentrations were calculated with the resulting model. These concentrations were chosen intentionally for compensating the presence of outliers (in $40\%$ for example) without having into account the both ends of the considered range of concentrations.
-
-\begin{figure}[!t]
-	\centering
-	\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1\columnwidth]{figures/fig6_2.png}
-	\caption{Block diagram of the developed workflow for training the bench-top CSRR system. In Data Preparation step, the database is cleaned by extracting the actual data (features) from metadata, providing a $450\times201$ feature matrix plus a $5\times201$ baseline matrix. In the Pre-Processing step the feature matrix baseline is correcte using the baseline matrix applied to each of the rounds separately. In the Training step, the feature matrix is split into the train dataset ($300\times201$ matrix) and the test dataset ($150\times201$ matrix). Then the train dataset is introduced in a leave-one-block-out cross-validation (LOGO-CV) training scheme which produces and optimized PLSR model. In the External Test step, the performance of the optimized model is evaluated by obtaining predictions from the test dataset.}
-	\label{fig:workflow}
-	\vspace{-0.3cm}
-\end{figure}
-
-Figure~\ref{fig:plsrStatistics}~(a) shows the evolution of the minimum Mean Square Error (MSE) with the number of components of the PLSR considered during the LOGO-CV scheme iteration. It is observed that with $6$ Latent Variables (LVs), the MSE of the best of the 5 models coming out from the LOGO-CV scheme is minimized up to $\sim6.8$ which leads to a Root Mean Square Error in Cross Validation (RMSECV) of $\sim3.62$. This values is very close to the error reported for the fitting presented in section~\ref{ssec:mlMeasurement} but here the time of sampling has been reduced to $\nicefrac{1}{4}$.
-
-Also, the most important features in the training dataset were observed by using the Variable Importance in Projection (VIP) scores per each of the features~\cite{Chong2005}. The calculated scores provide information of the averaged importance of each feature in the projection of the repetition in the restricted vectorial space that handles the PLSR. This information can be used to trim the feature matrix columns to the most relevant part of the $20\dot{\log\left(|S_{21}|\right)}$.
-
-There are many ways of defining the threshold that delimits which feature is more important than the rest~\cite{bibid}. However, a good first approach is to consider that every VIP score higher than $1$ belongs to a relevant feature. 
+Also, the most important features in the training dataset were observed by using the Variable Importance in Projection (VIP) scores per each of the features~\cite{Chong2005}. The calculated scores provide information of the averaged importance of each feature in the projection of the repetition in the restricted vectorial space that handles the PLSR. This information can be used to trim the feature matrix columns to the most relevant part of the $20\dot{\log\left(|S_{21}|\right)}$. There are many ways of defining the threshold that delimits which feature is more important than the rest~\cite{bibid}. However, a good first approach is to consider that every VIP score higher than $1$ belongs to a relevant feature. 
 
 Figure~\ref{fig:plsrStatistics}~(b) shows the VIP scores for the training dataset once the PLSR is optimized to $6$ LVs. In this figure, pink areas (\squarecolor[pink]) show scores $>1$. It is observed that most important parts of the $20\dot{\log\left(|S_{21}|\right)}$ correspond to data close to $2.1$~GHz, $2.45$~GHz and $2.5$~GHz. These frequency spans correspond to the most relevant differences between concentrations observed in figure~\ref{fig:mlMeasTaken}.
  
@@ -256,10 +256,8 @@ Figure~\ref{fig:plsrStatistics}~(b) shows the VIP scores for the training datase
 	\label{fig:plsrStatistics}
 \end{figure}
 
-\section{CSRR System Performance}
-\label{sec:csrrPerformance}
-\subsection{Performance in Cross Validation}
-\label{ssec:perfCV}
+\subsubsection{Performance in Cross Validation}
+\label{sssec:perfCV}
 
 \begin{figure}[!t]
 	\centering
@@ -274,20 +272,25 @@ As mentioned in section~\ref{ssec:plsRegressor}, the LOGO-CV training scheme pro
 
 According with figure~\ref{fig:plsrStatistics}~(a), the PLSR model with $6$ LVs provides better performance during the LOGO-CV scheme. Therefore, this model was used to produce predictions on the training dataset. In this process, repetitions for $20\%$, $30\%$, $50\%$, $70\%$ and $96\%$ samples were part of the training dataset and the $20\%$ of these repetitions were kept aside for performance evaluation.
 
-Figure~\ref{fig:plsrResults}~(a) shows the predictions of the PLSR model for the repetitions of the training dataset kept aside. The RMSE in CV (RMSECV) got close to $3.6$ with R$^{2}$ coefficient of $0.98$. The Limits of Agreement (LoA) were calculated using Blant-Altmand method for the $95\%$ of Confident Interval resulting in $13.5\%$ deviation from linear prediction.
+Figure~\ref{fig:plsrResults}~(a) shows the predictions of the PLSR model for the repetitions of the training dataset kept aside. The RMSE in CV (RMSECV) got close to $3.62$~$\sqrt{\%}$ with R$^{2}$ coefficient of $0.98$. The Limits of Agreement (LoA) were calculated using Blant-Altmand method for the $95\%$ of Confident Interval resulting in $13.5\%$ deviation from linear prediction.
  
-\subsection{Performance in Test}
-\label{ssec:perfTest}
+\subsubsection{Performance in Test}
+\label{sssec:perfTest}
 
 Despite the test during training is performed with repetitions that the LOGO-CV scheme had no access to, it is interesting to test if the PLSR model is able to predict concentrations that the training process have not seen before. 
 
 In section~\ref{ssec:plsRegressor}, the database was divided into training dataset and test dataset. The test dataset contained the repetitions of $40\%$, $60\%$ and $80\%$ samples. This dataset was used to obtain predictions with the PLSR model and evaluate its performance against "blind" samples.
 
-Figure~\ref{fig:plsrResults}~(b) shows the predictions obtained for the test dataset. These predictions produced a RMSE in Prediction (RMSEP) about $3.7$, very close to the RMSECV, with a R$^{2}$ coefficient of $0.98$. The LoAs were calculated in the same way presented in previous section, resulting in a LoA~$\sim14.2\%$ with a $95\%$ of Confident Interval. 
+Figure~\ref{fig:plsrResults}~(b) shows the predictions obtained for the test dataset. These predictions produced a RMSE in Prediction (RMSEP) about $3.7$~$\sqrt{\%}$, very close to the RMSECV, with a R$^{2}$ coefficient of $0.98$. The LoAs were calculated in the same way presented in previous section, resulting in a LoA~$\sim14.2\%$ with a $95\%$ of Confident Interval. 
 
 The PLSR models showed a $1.5\%$ bias when predicting the concentrations of the test dataset and the LoAs increased also $\sim1\%$ with respect to the LoAs obtained in training. 
 
-These performance was a bit worse than the performance shown during training but expected. The model has never put in contact with the data in the test dataset, therefore its variability might be different than the represented by the training dataset. However, the PLSR model trained following the scheme presented in section~\ref{ssec:plsRegressor} shows a good robustness against new repetitions of unknown samples.  
+These performance was a bit worse than the performance shown during training, but expected. The model was never put in contact with the data in the test dataset, therefore the variability of these samples (with their repetitions) might be different than the represented by the training dataset.
+
+\section{CSRR System Evaluation}
+\label{sec:csrrEval}
+
+ However, the PLSR model trained following the scheme presented in section~\ref{ssec:plsRegressor} shows a good robustness against new repetitions of unknown samples.  
 
 \section{Conclusions}
 \label{sec:conclusion}
