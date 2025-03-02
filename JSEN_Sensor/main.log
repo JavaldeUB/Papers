@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  1 MAR 2025 20:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  2 MAR 2025 08:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -803,16 +803,16 @@ File: figures/fig7_b.png Graphic file (type png)
 <use figures/fig7_b.png>
 Package pdftex.def Info: figures/fig7_b.png  used on input line 253.
 (pdftex.def)             Requested size: 252.0pt x 203.63379pt.
-<figures/fig8_a.png, id=75, 627.84563pt x 503.63156pt>
+<figures/fig8_a.png, id=75, 620.3175pt x 493.845pt>
 File: figures/fig8_a.png Graphic file (type png)
 <use figures/fig8_a.png>
 Package pdftex.def Info: figures/fig8_a.png  used on input line 266.
-(pdftex.def)             Requested size: 252.0pt x 202.14069pt.
-<figures/fig8_b.png, id=77, 631.60968pt x 508.14844pt>
+(pdftex.def)             Requested size: 252.0pt x 200.61649pt.
+<figures/fig8_b.png, id=77, 617.30624pt x 493.845pt>
 File: figures/fig8_b.png Graphic file (type png)
 <use figures/fig8_b.png>
 Package pdftex.def Info: figures/fig8_b.png  used on input line 267.
-(pdftex.def)             Requested size: 252.0pt x 202.74402pt.
+(pdftex.def)             Requested size: 252.0pt x 201.5961pt.
 
 
 [5
@@ -894,13 +894,13 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  18677 strings out of 473530
  371192 string characters out of 5714795
- 771829 words of memory out of 5000000
+ 771828 words of memory out of 5000000
  41503 multiletter control sequences out of 15000+600000
  718118 words of font info for 205 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,19n,87p,1860b,707s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 2051099 bytes).
+Output written on main.pdf (8 pages, 2041497 bytes).
 PDF statistics:
  198 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
