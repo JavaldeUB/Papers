@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1740936450.09782 "main.aux" "main.bbl" "main" 1740936475.21726 0
+["bibtex main"] 1740936450.09782 "main.aux" "main.bbl" "main" 1740936875.2745 0
   "./IEEEtran.bst" 1738839238 57747 7f352c4cdc6b731c74f03fae6a48280c ""
   "./bib/ieeeBibCSRRandML.bib" 1740065649 31243 70e483b247eeca89a13a530d87d1c0b1 ""
-  "main.aux" 1740936473 12015 141ff1ca3d811988e5762b141fc4fb76 "pdflatex"
+  "main.aux" 1740936874 12015 141ff1ca3d811988e5762b141fc4fb76 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1740936470.36435 "c:/Users/javit/Documents/curso24_25/Investigación/Papers/JSEN_Sensor/main.tex" "main.pdf" "main" 1740936475.21813 0
+["pdflatex"] 1740936872.20209 "c:/Users/javit/Documents/curso24_25/Investigación/Papers/JSEN_Sensor/main.tex" "main.pdf" "main" 1740936875.27502 0
   "C:/Users/javit/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1740829395 84158 d77284a6843bde1e4b9764f09fb2e89e ""
   "C:/Users/javit/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1738839773 12017794 cf1cdc34608f97e57952a2fdf56ce0be ""
   "C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc" 1458473887 4993 80dc9bab7f31fb78a000ccfed0e27cab ""
@@ -236,11 +236,11 @@
   "figures/fig6_2.png" 1739978430 55101 e97f0e352a6a3ca9fec6befbfa814738 ""
   "figures/fig7_a.png" 1740029546 49811 77c21dd371250c29a0ce1c7796f39f9b ""
   "figures/fig7_b.png" 1740029575 83485 62cb49dc815b75619646b68becafadfd ""
-  "figures/fig8_a.png" 1740899192 83449 a32435361edb0b339432357994b11db0 ""
-  "figures/fig8_b.png" 1740899241 83760 88053f00e64c91084519cc17969dde8b ""
+  "figures/fig8_a.png" 1740936822 83720 e2761c7e92ee0043889d29b8ee3f554d ""
+  "figures/fig8_b.png" 1740936845 84718 80aedb5c7cb8f23c443161228acc34bc ""
   "ieeecolor.cls" 1738839238 219944 16d157a44b27ab676675957eb7abc811 ""
   "jsen.sty" 1738839238 189 9fef9a671e8e07b7c2e2b4009f00add7 ""
-  "main.aux" 1740936473 12015 141ff1ca3d811988e5762b141fc4fb76 "pdflatex"
+  "main.aux" 1740936874 12015 141ff1ca3d811988e5762b141fc4fb76 "pdflatex"
   "main.bbl" 1740936450 11088 b6a212a7c7e6a756cfd0e8e2f3f47e96 "bibtex main"
   "main.tex" 1740936469 39517 b558c36ead94b1c956d5d82b024d16df ""
   (generated)
