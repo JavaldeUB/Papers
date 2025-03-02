@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  2 MAR 2025 08:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2025.2.6)  2 MAR 2025 18:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -675,10 +675,6 @@ Overfull \vbox (10.51729pt too high) has occurred while \output is active []
 
 
  <./LOGO-jsen-web-eps-converted-to.pdf> <./figures/fig0.png>]
-Underfull \hbox (badness 4518) in paragraph at lines 103--104
-[]\T1/ptm/m/n/10 In this con-tri-bu-tion, the ap-pli-ca-bil-ity of ML al-go-
- []
-
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 108.
 <figures/fig1.png, id=23, 729.47531pt x 462.97969pt>
@@ -719,16 +715,16 @@ pdfTeX warning: pdflatex: pop empty color page stack 0
  <./figures/fig1.png> <./figures/fig2.png>]
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <9> not available
 (Font)              Font shape `T1/phv/m/sl' tried instead on input line 147.
-<figures/fig3_a.png, id=45, 577.40718pt x 365.11406pt>
+<figures/fig3_a.png, id=42, 649.67719pt x 493.845pt>
 File: figures/fig3_a.png Graphic file (type png)
 <use figures/fig3_a.png>
 Package pdftex.def Info: figures/fig3_a.png  used on input line 153.
-(pdftex.def)             Requested size: 252.0pt x 159.34702pt.
-<figures/fig3_b.png, id=47, 582.67688pt x 497.60907pt>
+(pdftex.def)             Requested size: 252.0pt x 191.55133pt.
+<figures/fig3_b.png, id=44, 620.3175pt x 516.42938pt>
 File: figures/fig3_b.png Graphic file (type png)
 <use figures/fig3_b.png>
 Package pdftex.def Info: figures/fig3_b.png  used on input line 154.
-(pdftex.def)             Requested size: 252.0pt x 215.20537pt.
+(pdftex.def)             Requested size: 252.0pt x 209.79103pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
@@ -739,7 +735,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
 
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <7> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 181.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 179.
 [3
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
@@ -750,18 +746,18 @@ pdfTeX warning: pdflatex: pop empty color page stack 0
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
  <./figures/fig3_a.png> <./figures/fig3_b.png>]
-<figures/fig4_3.png, id=57, 630.10406pt x 471.26062pt>
+<figures/fig4_3.png, id=58, 630.10406pt x 471.26062pt>
 File: figures/fig4_3.png Graphic file (type png)
 <use figures/fig4_3.png>
 Package pdftex.def Info: figures/fig4_3.png  used on input line 190.
 (pdftex.def)             Requested size: 252.0pt x 188.47214pt.
-
-
-<figures/fig5_2.png, id=59, 787.44188pt x 542.025pt>
+<figures/fig5_2.png, id=60, 787.44188pt x 542.025pt>
 File: figures/fig5_2.png Graphic file (type png)
 <use figures/fig5_2.png>
 Package pdftex.def Info: figures/fig5_2.png  used on input line 203.
 (pdftex.def)             Requested size: 252.0pt x 173.45981pt.
+
+
 
 
 [4
@@ -783,7 +779,7 @@ pdfTeX warning: pdflatex: pop empty color page stack 0
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
  <./figures/fig4_3.png> <./figures/fig5_2.png>]
-<figures/fig6_2.png, id=69, 839.38594pt x 423.83344pt>
+<figures/fig6_2.png, id=70, 839.38594pt x 423.83344pt>
 File: figures/fig6_2.png Graphic file (type png)
 <use figures/fig6_2.png>
 Package pdftex.def Info: figures/fig6_2.png  used on input line 236.
@@ -793,22 +789,22 @@ Package pdftex.def Info: figures/fig6_2.png  used on input line 236.
 
 LaTeX Warning: Citation `bibid' on page 5 undefined on input line 246.
 
-<figures/fig7_a.png, id=71, 621.82312pt x 499.11469pt>
+<figures/fig7_a.png, id=72, 621.82312pt x 499.11469pt>
 File: figures/fig7_a.png Graphic file (type png)
 <use figures/fig7_a.png>
 Package pdftex.def Info: figures/fig7_a.png  used on input line 252.
 (pdftex.def)             Requested size: 252.0pt x 202.2698pt.
-<figures/fig7_b.png, id=73, 615.80063pt x 497.60907pt>
+<figures/fig7_b.png, id=74, 615.80063pt x 497.60907pt>
 File: figures/fig7_b.png Graphic file (type png)
 <use figures/fig7_b.png>
 Package pdftex.def Info: figures/fig7_b.png  used on input line 253.
 (pdftex.def)             Requested size: 252.0pt x 203.63379pt.
-<figures/fig8_a.png, id=75, 620.3175pt x 493.845pt>
+<figures/fig8_a.png, id=76, 620.3175pt x 493.845pt>
 File: figures/fig8_a.png Graphic file (type png)
 <use figures/fig8_a.png>
 Package pdftex.def Info: figures/fig8_a.png  used on input line 266.
 (pdftex.def)             Requested size: 252.0pt x 200.61649pt.
-<figures/fig8_b.png, id=77, 617.30624pt x 493.845pt>
+<figures/fig8_b.png, id=78, 617.30624pt x 493.845pt>
 File: figures/fig8_b.png Graphic file (type png)
 <use figures/fig8_b.png>
 Package pdftex.def Info: figures/fig8_b.png  used on input line 267.
@@ -846,9 +842,9 @@ pdfTeX warning: pdflatex: pop empty color page stack 0
 
 
 pdfTeX warning: pdflatex: pop empty color page stack 0
- <./figures/fig7_a.png> <./figures/fig7_b.png> <./figures/fig8_a.png> <./figures/fig8_b.png>] (main.bbl
+ <./figures/fig7_a.png> <./figures/fig7_b.png> <./figures/fig8_a.png> <./figures/fig8_b.png>]
 
-
+(main.bbl
 Underfull \hbox (badness 1383) in paragraph at lines 31--36
 \T1/ptm/m/n/8 M. Laso, J. Garcia-Garcia, I. Gil, M. Por-tillo, and M. Sorolla,
  []
@@ -865,7 +861,11 @@ Underfull \hbox (badness 1448) in paragraph at lines 38--43
 ** loaded for the language `en'. Using the pattern for
 ** the default language instead.
 )
-<figures/JAV-Website-Photo.jpg, id=100, 481.8pt x 642.4pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+<figures/JAV-Website-Photo.jpg, id=101, 481.8pt x 642.4pt>
 File: figures/JAV-Website-Photo.jpg Graphic file (type jpg)
 <use figures/JAV-Website-Photo.jpg>
 Package pdftex.def Info: figures/JAV-Website-Photo.jpg  used on input line 317.
@@ -874,8 +874,6 @@ File: figures/JAV-Website-Photo.jpg Graphic file (type jpg)
 <use figures/JAV-Website-Photo.jpg>
 Package pdftex.def Info: figures/JAV-Website-Photo.jpg  used on input line 317.
 (pdftex.def)             Requested size: 67.75294pt x 90.33728pt.
-
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -894,15 +892,15 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  18677 strings out of 473530
  371192 string characters out of 5714795
- 771828 words of memory out of 5000000
+ 770829 words of memory out of 5000000
  41503 multiletter control sequences out of 15000+600000
  718118 words of font info for 205 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,19n,87p,1860b,707s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (8 pages, 2041497 bytes).
+ 84i,19n,87p,1959b,707s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss9.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/javit/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (8 pages, 2067333 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
+ 203 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  161 words of extra memory for PDF output out of 10000 (max. 10000000)
 
