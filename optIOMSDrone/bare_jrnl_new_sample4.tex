@@ -74,11 +74,39 @@ Therefore, this contribution is organized as follows: Section \ref{sec:IOMS} pro
  
 \section{IOMS Description}
 \label{sec:IOMS}
-The templates are intended to {\bf{approximate the final look and page length of the articles/papers}}. {\bf{They are NOT intended to be the final produced work that is displayed in print or on IEEEXplore\textsuperscript{\textregistered}}}. They will help to give the authors an approximation of the number of pages that will be in the final version. The structure of the \LaTeX\ files, as designed, enable easy conversion to XML for the composition systems used by the IEEE. The XML files are used to produce the final print/IEEEXplore pdf and then converted to HTML for IEEEXplore.
+
+\begin{figure*}[t] % t para colocar la figura en la parte superior
+	\centering
+	\includegraphics[width=0.53\linewidth]{./images/fig1_ab.png}
+	\hfill
+	\includegraphics[width=0.45\linewidth]{./images/fig1_c.png}
+	\hfill
+	\caption{Graphical description of the Instrumental Odour Monitoring System. a) Block diagram of the Ground Station (GS). It is based on a Raspberry pi 4B+ and communicates with the mobile part of the IOMS via Peer two Peer LoRA connection. It also provide GPS data to the RTK GPS module for corrections and communicates with an external server via GSM router. b) Block diagram of the mobile part of the IOMS. The Rover Station (RS) is placed on the drone and it communicates with the RTK GPS system, controls the power consumption and gets data from the FastIOMS system. This system provides data from three chambers, each with different sensors inside, air flow coming inside the the chambers and temperature and relative humidity of the air in contact with each sensor.}
+	\label{fig:iomsDescp}
+\end{figure*}
+
+Figures~\ref{fig:iomsDescp}~(a), (b) and (c) show the architecture of the novel IOMS. The system is divided in two parts. The mobile part contains the Rover Station (RS) and the Fast IOMS, both mounted on the drone (see figure~\ref{fig:iomsPhoto}).  
+\begin{figure}[b!] % t para colocar la figura en la parte superior
+	\centering
+	\includegraphics[width=1\linewidth]{./images/fig3.png}
+	\hfill
+	\caption{Novel IOMS mounted on the drone with the Bag Sampler. The Rover Station is placed close to the drone chassis for protection. The Fast IOMS and Bag Sampler air inlets are connected two both 10 meters PTFE tubes.}
+	\label{fig:iomsPhoto}
+\end{figure}
 
 \section{IOMS Performance Characterization}
 \label{sec:labChar}
-The following online groups are helpful to beginning and experienced \LaTeX\ users. A search through their archives can provide many answers to common questions.
+
+\begin{figure*}[t] % t para colocar la figura en la parte superior
+	\centering
+	\includegraphics[width=0.53\linewidth]{./images/fig2_ab.png}
+	\hfill
+	\includegraphics[width=0.45\linewidth]{./images/fig2_cd.png}
+	\hfill
+	\caption{Experimental setups used for characterizing the Fast IOMS system at the laboratory. a) First setup: the fast IOMS is connected to ball valve acting as a exhaust valve of an adiabatic chamber. The diluted compound is placed inside the chamber and leaved there for 5 minutes with the inlet valve and the exhaust valve closed. After 5 minutes both valves are open and the Fast IOMS inlet is connected to the exhaust valve for data logging. b) Practical realization of the first experimental setup. c) Second setup: The Fast IOMS inlet is placed alongside the probe tip of a 201B miniPID from AURORA Inc. at the end of a wind tunnel. At the entrance of the wind tunnel, a small petri dish with 25mL of the diluted compound with a small fan is placed. The fan is turned on and off in 20 seconds intervals. d) Practical realization of the second setup.}
+	\label{fig:characSetups}
+\end{figure*}
+
 \begin{list}{}{}
 \item{\url{http://www.latex-community.org/}} 
 \item{\url{https://tex.stackexchange.com/} }
