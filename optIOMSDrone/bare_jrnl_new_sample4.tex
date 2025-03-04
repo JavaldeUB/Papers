@@ -85,11 +85,13 @@ Therefore, this contribution is organized as follows: Section \ref{sec:IOMS} pro
 	\label{fig:iomsDescp}
 \end{figure*}
 
-Figures~\ref{fig:iomsDescp}~(a), (b) and (c) show the architecture of the novel IOMS. The system is divided in two parts. The mobile part contains the Rover Station (RS), ther RTK GPS system, and the Fast IOMS (see figure~\ref{fig:iomsPhoto}). The ground based system (Base Station or BS) is placed near by the fliying area for monitoring, logging and control duties.
+Figures~\ref{fig:iomsDescp}~(a), (b) and (c) show the architecture of the novel IOMS. The system is divided in two parts. The mobile part contains the Rover Station (RS), the RTK GPS system, the Bag Sampler (BSplr), and the Fast IOMS (see figure~\ref{fig:iomsPhoto}). The ground based system (Base Station or BS) is placed near by the fliying area for monitoring, logging and control duties.
 
-The RS is placed on the drone and it controls the power consumption and gets data from the FastIOMS system. This system provides data from three chambers, each with different sensors inside, air flow coming inside the the chambers and temperature and relative humidity of the air in contact with each sensor. This data is sent via Peer-to-Peer LoRA communication to the BS. At BS, the data is plotted for information of the operator, logged in a hardrive and sent to an external server for further analysis. The BS connects with the external serve via a GSM router.
+The RS is placed on the drone and it controls the power consumption, gets data from the Fast-IOMS system, and controls the activation of the BSplr. The Fast-IOMS system provides data from three chambers, each with different sensors inside, air flow coming inside the the chambers and temperature and relative humidity of the air in contact with each sensor. This data is sent via Peer-to-Peer LoRA communication to the BS. At the BS, the data is plotted for information of the operator, logged in a hardrive and sent to an external server for further analysis. The BS connects with the external server via a GSM router.
 
-At the same time the data from the Fast-IOMS is logged data with centimeter precission is added to the generated files. This data is provided by the RTK GPS module once the module recives GPS location from the BS and makes its corrections. The module is based on a ZED-F9P module from U-Blox.
+At the same time the data from the Fast-IOMS is logged, data with centimeter precission is added to the generated files. This data is provided by the RTK GPS module once the module recives GPS location from the BS and makes its corrections. The module is based on a ZED-F9P module from U-Blox.
+
+Finally, whenever the operator decides to activate the BSplr, the BS sends a command to the RS via LoRA to activate the Bag Sampler. This system is based on a small pump that sucks air from the environment and stores it in a bag for further analysis.
 
 \begin{figure}[!t] % t para colocar la figura en la parte superior
 	\centering
@@ -144,9 +146,18 @@ The Fast-IOMS also hosts a pump connected upstream of the fluidic path. It can p
 \subsection{Rover Station}
 \label{ssec:roverStation}
 
-As it is shown in figure~\ref{fig:iomsPhoto}, the RS is comfortably attached to the lower belly of the AAurelia X8 octocopter. Ther RS is based on a two core RP2040 $\mu$C which controls the power consumption of the Flying system (Fast-IOMS and itself) via I$^{2}$C. It si connected to the Fast-IMS via a RS$485$ bus (as depicted in figure~\ref{fig:iomsDescp}~(c)) and produces bursts of data every $2$ seconds. Each burst of data corresponds to one chamber and contains $6$ different measurments of every sensor stamped with the corresping temperature and Relative humidity data.
+As it is shown in figure~\ref{fig:iomsPhoto}, the RS is comfortably attached to the lower belly of the AAurelia X8 octocopter. Ther RS is based on a two core RP2040 $\mu$C which controls the power consumption of the Flying system (Fast-IOMS and itself) via I$^{2}$C. It si connected to the Fast-IMS via a RS$485$ bus (as depicted in figure~\ref{fig:iomsDescp}~(c)) and produces bursts of data every $2$ seconds. Each burst of data corresponds to one chamber and contains $6$ different measurments of every sensor stamped with the corresponding temperature and Relative humidity data.
 
-Each data burst is packed and set to the BS via Peer-to-Peer LoRA communication. The LoRA module is controlled via a Serial-UART bus (see figure~\ref{fig:iomsDescp}~(c)). 
+Each data burst is packed and sent to the BS via Peer-to-Peer LoRA communication. The LoRA module is controlled via a Serial-UART bus (see figure~\ref{fig:iomsDescp}~(c)) and works at $915$~MHz sending packets of $256$ bytes.
+
+\subsection{Base Station}
+\label{ssec:baseStation}
+
+The BS is based on a Raspberry pi 4B+ and communicates with the mobile part of the IOMS via Peer two Peer LoRA connection as explained in the previous section. As the data is comming, it is plotted by a Python-based Graphical User Interface (GUI) which is running continouslly. The GUI also allows to control the bag sampler activation sending via LoRA commands to the RS. This GUI also logs the data in a hardrive and sends the created files to a FTTP server via a GSM router.
+
+\subsection{RTK GPS}
+\label{ssec:rtkGPS}
+In paralel to the transmission of the data from the RS to the BS, the RTK GPS module (ZED-F9P from U-Blox) is receiving GPS data from the BS (generated by another ZED-F9P module) and making corrections to the GPS location. This data is sent to the BS via Peer-to-Peer connection at $433$~MHz and is logged in the same file as the data from the Fast-IOMS. 
 
 \section{IOMS Performance Characterization}
 \label{sec:labChar}
