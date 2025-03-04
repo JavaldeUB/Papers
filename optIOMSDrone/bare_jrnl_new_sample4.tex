@@ -81,18 +81,72 @@ Therefore, this contribution is organized as follows: Section \ref{sec:IOMS} pro
 	\hfill
 	\includegraphics[width=0.45\linewidth]{./images/fig1_c.png}
 	\hfill
-	\caption{Graphical description of the Instrumental Odour Monitoring System. a) Block diagram of the Ground Station (GS). It is based on a Raspberry pi 4B+ and communicates with the mobile part of the IOMS via Peer two Peer LoRA connection. It also provide GPS data to the RTK GPS module for corrections and communicates with an external server via GSM router. b) Block diagram of the mobile part of the IOMS. The Rover Station (RS) is placed on the drone and it communicates with the RTK GPS system, controls the power consumption and gets data from the FastIOMS system. This system provides data from three chambers, each with different sensors inside, air flow coming inside the the chambers and temperature and relative humidity of the air in contact with each sensor.}
+	\caption{Graphical description of the Instrumental Odour Monitoring System. a) Block diagram of the Base Station (BS). It is based on a Raspberry pi 4B+ and communicates with the mobile part of the IOMS via Peer two Peer LoRA connection. It also provide GPS data to the RTK GPS module for corrections and communicates with an external server via GSM router. b) Block diagram of the mobile part of the IOMS. The Rover Station (RS) is placed on the drone and it controls the power consumption and gets data from the FastIOMS system. This system provides data from three chambers, each with different sensors inside, air flow coming inside the the chambers and temperature and relative humidity of the air in contact with each sensor.}
 	\label{fig:iomsDescp}
 \end{figure*}
 
-Figures~\ref{fig:iomsDescp}~(a), (b) and (c) show the architecture of the novel IOMS. The system is divided in two parts. The mobile part contains the Rover Station (RS) and the Fast IOMS, both mounted on the drone (see figure~\ref{fig:iomsPhoto}).  
-\begin{figure}[b!] % t para colocar la figura en la parte superior
+Figures~\ref{fig:iomsDescp}~(a), (b) and (c) show the architecture of the novel IOMS. The system is divided in two parts. The mobile part contains the Rover Station (RS), ther RTK GPS system, and the Fast IOMS (see figure~\ref{fig:iomsPhoto}). The ground based system (Base Station or BS) is placed near by the fliying area for monitoring, logging and control duties.
+
+The RS is placed on the drone and it controls the power consumption and gets data from the FastIOMS system. This system provides data from three chambers, each with different sensors inside, air flow coming inside the the chambers and temperature and relative humidity of the air in contact with each sensor. This data is sent via Peer-to-Peer LoRA communication to the BS. At BS, the data is plotted for information of the operator, logged in a hardrive and sent to an external server for further analysis. The BS connects with the external serve via a GSM router.
+
+At the same time the data from the Fast-IOMS is logged data with centimeter precission is added to the generated files. This data is provided by the RTK GPS module once the module recives GPS location from the BS and makes its corrections. The module is based on a ZED-F9P module from U-Blox.
+
+\begin{figure}[!t] % t para colocar la figura en la parte superior
 	\centering
 	\includegraphics[width=1\linewidth]{./images/fig3.png}
 	\hfill
 	\caption{Novel IOMS mounted on the drone with the Bag Sampler. The Rover Station is placed close to the drone chassis for protection. The Fast IOMS and Bag Sampler air inlets are connected two both 10 meters PTFE tubes.}
 	\label{fig:iomsPhoto}
 \end{figure}
+
+\subsection{Fast IOMS}
+\label{ssec:fastIOMS}
+The Fast-IOMS consists of 4 chambers with 3 electrochemical sensors, one Photo Ionization Detector (PID), and MOx sensors from different manufacturers. Table 1 summarizes the sensors placed inside the chambers.
+Every chamber has its own microcontroller ($\mu$C) SAMD21 for acquiring and transmitting the data. Each has a hardware interrupt line that activates the communication protocol via RS$485$. The $\mu$Cs also have a USB-C port for debugging and stand-alone functionality.
+
+The MoxAn chamber consists of 4 small cavities ($0.6$~cm$^{3}$) accommodating 4 TGS MOx sensors from Figaro. Currently, the sensors (TGS$2600$, TGS$2602$, TGS$2611$, and TGS$2620$) operate with the same PWM signal applied to their heater resistance. Voltage is acquired using an ADS$1115$ ADC connected to the $\mu$C via I$^{2}$C. Table~\ref{tab:fastIOMSsensors} summarizes the sensors placed inside each chamber.
+
+
+Temperature and relative humidity inside each cavity are sampled by ENS$210$ sensors from Sensirion. The resistance of the $4$ MOx sensors is sent to the RS via RS$485$ at a maximum rate of $10$ Hz, along with the data from the ENS$210$ sensors, sampled every second.
+With a similar design, the MoxDig chamber consists of 4 small cavities where $3$ digital MOx sensors and one photoacoustic sensor are placed. The SGP$41$, the ENS$160$, and the BM$688$ are configured in their single-shot acquisition mode. The SCD$41$ is configured in its periodic sampling mode.
+As in the MoxAn chamber, 4 ENS$210$ sensors are placed inside for temperature and relative humidity monitoring. 
+
+The other two chambers host $3$ electrochemical sensors from Membrapor and a Photoionization Detector (PID) from Alphasense. The H$_{2}$S sensors are placed together in the same chamber with an additional ENS210 sensor monitoring temperature and relative humidity inside. The NH$_{3}$ sensor is placed in the second chamber with the PID, also with an additional ENS$210$ sensor. The electrochemical sensors are controlled by a PCB from Membrapor and the voltage produced by the PID is acquired using an ADS$1115$ ADC. 
+
+The raw data from the three  are sent to the RS at a maximum rate of $1$~$\nicefrac{Hz}{sensor}$ along with their corresponding temperature and relative humidity data from the ENS$210$ sensors (sampled every $6$ seconds).
+
+\begin{table}
+	\caption{Summary of the sensors placed inside each chamber and their main characteristics.}
+	\setlength{\tabcolsep}{0.5\tabcolsep}% Shrink \tabcolsep by 30%
+	\centering
+	\begin{tabular}{ *{4}{c} }
+	\toprule
+	\multirow{2}{*}{\textbf{Chamber}} & & \textbf{Chamber Characteristics}\\
+		& \textit{Sensors} & \textit{Chamber} & \textit{Number of}\\
+		& {Included} & \textit{Volume} & \textit{ENS$210$}\\
+		& &\textit{(cm$^{3}$)} & \textit{($^{\circ}$, RH($\%$))}\\
+		\midrule
+		MoxAn & TGS2600, TGS2602,   & 0.6    & 4\\
+		    & TGS2611, TGS2620	  &        &  \\
+		MoxDig & SGP41, ENS160, & 0.6    & 4\\
+		     & BM688, SCD41	  &        &  \\
+		ECS & H2S/C-50, & 4 & 1\\
+		  & H2S/C-200 & & \\
+		ECs+PID & NH3/C-100, PID & 4 & 1\\
+		\bottomrule
+	\end{tabular}
+	\label{tab:fastIOMSsensors}
+\end{table}
+ 
+ 
+The Fast-IOMS also hosts a pump connected upstream of the fluidic path. It can provide $3.5$~slm of air mass flow when every chamber is connected to it. A flow meter (FS$2012$ from Renesas) has been placed at the entrance of the chambers to monitor the air entering the Fast-IOMS. This data is sent directly to the RS via differential I2C.
+
+\subsection{Rover Station}
+\label{ssec:roverStation}
+
+As it is shown in figure~\ref{fig:iomsPhoto}, the RS is comfortably attached to the lower belly of the AAurelia X8 octocopter. Ther RS is based on a two core RP2040 $\mu$C which controls the power consumption of the Flying system (Fast-IOMS and itself) via I$^{2}$C. It si connected to the Fast-IMS via a RS$485$ bus (as depicted in figure~\ref{fig:iomsDescp}~(c)) and produces bursts of data every $2$ seconds. Each burst of data corresponds to one chamber and contains $6$ different measurments of every sensor stamped with the corresping temperature and Relative humidity data.
+
+Each data burst is packed and set to the BS via Peer-to-Peer LoRA communication. The LoRA module is controlled via a Serial-UART bus (see figure~\ref{fig:iomsDescp}~(c)). 
 
 \section{IOMS Performance Characterization}
 \label{sec:labChar}
