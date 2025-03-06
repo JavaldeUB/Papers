@@ -82,11 +82,13 @@
 \includegraphics[width=2.5in]{figures/fig0.png}%
 \end{wrapfigure}%
 \begin{abstract}
-	Complementary Split Ring Resonators (CSRRs) have been widely explored as planar sensors over the last decade. Despite their proven performance in laboratory settings — where high-end Vector Network Analyzers (VNAs) are employed, environmental conditions are strictly controlled, and the Sample Under Test (SUT) is meticulously prepared — their applicability outside controlled environments remains limited. Most studies have evaluated CSRR-based sensors in terms of linearity, sensitivity, and accuracy, often overlooking their practical feasibility in real-world applications.
+Complementary Split Ring Resonators (CSRRs) have been widely explored as planar sensors over the last two decades. Despite their proven performance in laboratory settings — where high-end Vector Network Analyzers (VNAs) are employed, environmental conditions are monitored, and sampling methods are highly repeatible — their applicability outside controlled environments remains limited.
 
-In this contribution, a novel approach is proposed to assess the practical applicability of CSRR sensors in biomedical research. Unlike conventional studies, the S-parameters are measured using an inexpensive, portable VNA, the SUT is placed inside standard test vials commonly used in biomedical laboratories, and no environmental control is applied during sampling. Ethanol solutions diluted in deionized water, ranging from $10\%$ to $96\%$ in concentration, were prepared and poured into commercial vials, with $10$ replicates per concentration. Measurements were randomized, yielding $50$ repetitions per concentration and approximately $500$ measurements in total — a sample size significantly larger than typically reported in the literature, aiming to enhance the robustness and reliability of the Machine Learning models.
+In this contribution, a novel approach is proposed to boost the practical applicability of CSRR sensors in biomedical research. The performance of a CSRR-based measurement system is measured by its capability of quantifying the concentration of a target substance in solution. Unlike conventional studies, the Scattering Parameters are measured using an inexpensive portable VNA, the SUT is placed inside standard test vials commonly used in biomedical laboratories, and no environmental control is applied during sampling. In this situation, it is demonstrated here that Machine Learning Algorithms enhances the performance of CSRR-based systems compared with traditional statistical analysis presented in the literature. 
 
-Principal Component Analysis (PCA) was applied to the acquired dataset for visualization and to explore the underlying structure of the data. The large number of measurements enabled a more comprehensive representation of the experimental variability. Subsequently, a Partial Least Squares Regressor (PLSR) was trained and validated using a Leave-One-Group-Out Cross-Validation scheme. The model achieved a Root Mean Square Error in Prediction (RMSEP) of approximately $3.7\sqrt{\%}$ and a Limit of Agreement of approximately $15\%$ within a $95\%$ Confidence Interval — without exhibiting signs of underfitting or overfitting. These results highlight the potential of CSRR-based sensors for the quantification of bi-component liquid mixtures under realistic, uncontrolled conditions for biomedical applications.			   
+Ethanol solutions diluted in clean water, ranging from $10\%$ to $96\%$ in concentration, were prepared and poured into commercial vials. A set of $90$ vials were prepared and measured by randomizing repetitions resulting in 500 samples in total — a sample size significantly larger than typically reported in the literature, aiming to enhance the robustness and reliability of the Machine Learning models.
+
+Principal Component Analysis (PCA) was applied to the acquired dataset for exploring the underlying structure of the data. Subsequently, a Partial Least Squares Regressor (PLSR) was trained and validated using a Leave-One-Group-Out Cross-Validation scheme. The model achieved a Root Mean Square Error in Prediction (RMSEP) of approximately $3.7\%$ and a Limit of Agreement of approximately $15\%$ within a $95\%$ Confidence Interval — without exhibiting signs of underfitting or overfitting. These results highlight the potential of CSRR-based sensors for the quantification of bi-component liquid mixtures under realistic, uncontrolled conditions for biomedical applications.			   
 \end{abstract} 
 
 \begin{IEEEkeywords}
@@ -111,7 +113,7 @@ The text is organized as follows: In Section~\ref{sec:csrrbenchTop}, the measure
 \section{CSRR benchtop System}\label{sec:csrrbenchTop}
 \subsection{System Block Diagram}\label{ssec:sysBlockD}
 
-\begin{figure}[!t]
+\begin{figure}[!ht]
 	\centering
 	\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1\columnwidth]{figures/fig1.png}
 	\caption{Proposed bench-top CSRR system. a) The commercial vial (Chromacol 20-HSV) containing the SUT is placed on the CSRR using a PLA 3D printed support. The CSRR is connected to the low cost VNA (NanoVNA F-V2) by two sma cables. The NanoVNA can be operated via graphical interface running in the device or serial commands coming from an application running in a common laptop. b) Real setup with a vial on top of the CSRR.}
@@ -212,6 +214,7 @@ Second, some outliers for certain concentrations ($0\%$, $20\%$ and $40\%$) were
 	%\hfill
 	\caption{Traditional characterization of the CSRR system when measuring concentrations of ethanol diluted in clean water and poured in commercial vials. a) Averaged $20\dot{\log\left(|S_{21}|\right)}$ response of the generated database. b) Rational model for the frequency of the minimum observed in the averaged $20\dot{\log\left(|S_{21}|\right)}$ when every concentration of ethanol in clean water is observed ($10$, $20$, $30$, $40$, $50$, $60$, $70$, $80$, and $96$~$\%$)}
 	\label{fig:avgData}
+	\vspace{-0.3cm}
 \end{figure}
 
 Following the studies presented in the literature, figure~\ref{fig:avgData}~(a) shows the averaged $20\dot{\log\left(|S_{21}|\right)}$ for each concentration. It shows how the evolution of the shape of the S$_{21}$ parameter with the concentration implies a non-linear response of the system with ethanol. Evaluating the frequency displacement of the most prominent resonance in Figure~\ref{fig:avgData}~(a)~\cite{Abdolrazzaghi2023}, a rational fitting of the deepest resonance results in the following expression:
@@ -221,7 +224,7 @@ Following the studies presented in the literature, figure~\ref{fig:avgData}~(a) 
 	 C_{\%}(\nu) = \frac{p1\cdot\nu+p2}{\nu+q} 
 \end{equation} 
 
-when the frequency,$\nu$ is in GHz and p1$=110.7274$~$\nicefrac{\%}{GHz^{2}}$, p2$=-257.0246$~$\nicefrac{\%}{GHz}$ and q$=-2.2893$~$GHz$. The R$^{2}$ of the fit is $0.9422$ and the RMSE$=7.9208$~$\sqrt{\%}$. The fitting was performed using the Curve Fitting Toolbox from MATLAB. This model is presented in Figure~\ref{fig:avgData}~(b).
+when the frequency,$\nu$ is in GHz and p1$=110.7274$~$\nicefrac{\%}{GHz^{2}}$, p2$=-257.0246$~$\nicefrac{\%}{GHz}$ and q$=-2.2893$~$GHz$. The R$^{2}$ of the fit is $0.9422$ and the RMSE$=7.9208$~$\%$. The fitting was performed using the Curve Fitting Toolbox from MATLAB. This model is presented in Figure~\ref{fig:avgData}~(b).
 
 \subsection{Principal Component Analysis}
 \label{ssec:pcaAnalysis}
@@ -231,7 +234,7 @@ when the frequency,$\nu$ is in GHz and p1$=110.7274$~$\nicefrac{\%}{GHz^{2}}$, p
 	\includegraphics [trim = 0mm 0mm 0mm 0mm, clip, width=1\columnwidth]{figures/fig5_3.png}
 	\caption{Principal Component Analysis (PCA) of the dataset generated as described in section~\ref{ssec:samplingMethod}. a) Distribution of each repetition in the reduced vectorial space when representing the second Principal Component (PC) with respect to the first PC. b) Distribution of each repetition in the reduced vectorial space when representing the third Principal Component (PC) with respect to the first PC. c) Cumulative Explained Variance of the dataset (in $\%$) with respect to the considered PCs and Explained Variance distribution over the set of PCs considered. d) 3D distribution of each repetition in the reduced vectorial space.}
 	\label{fig:pcaAnalysis}
-	%\vspace{-0.3cm}
+	\vspace{-0.3cm}
 \end{figure}
 
 Figures~\ref{fig:pcaAnalysis}~(a), (b) and (d), show the distribution of the repetitions in the reduced vectorial space of the extracted PCs. In both figures, the first PC shows its dominance which can be related with the ethanol concentration in solution. The spread in this component shows that, despite the careful preparation of each stock solution, the system is sensitive enough to observe relatively small variations in concentration. 
@@ -246,7 +249,7 @@ Also, these figures show a spread in the second and third components which can b
 
 Once the workflow presented in figure~\ref{fig:workflow} is performed, there are certain intermediate results that provide ideas about the performance of the obtained model. Figure~\ref{fig:plsrStatistics}~(a) shows the evolution of the Root Mean Square Error (RMSE) with the number of components of the PLSR considered during the LOGO-CV scheme iteration. 
 
-It is observed that with $6$ Latent Variables (LVs), the MSE of the best of the 5 models coming out from the LOGO-CV scheme is minimized up to $\sim6.8$ which leads to a Root Mean Square Error in Cross Validation (RMSECV) of $\sim3.62\sqrt{\%}$.
+It is observed that with $6$ Latent Variables (LVs), the MSE of the best of the 5 models coming out from the LOGO-CV scheme is minimized up to $\sim6.8$ which leads to a Root Mean Square Error in Cross Validation (RMSECV) of $\sim3.62\%$.
 
 Also, the most important features in the training dataset were observed by using the Variable Importance in Projection (VIP) scores per each of the features~\cite{Chong2005}. The calculated scores provide information of the averaged importance of each feature in the projection of the repetition in the restricted vectorial space that handles the PLSR. This information can be used to trim the feature matrix columns to the most relevant part of the $20\dot{\log\left(|S_{21}|\right)}$. There are many ways of defining the threshold that delimits which feature is more important than the rest~\cite{Ansari2015}. However, a good approach is to consider that every mean VIP score higher than $1$ belongs to a relevant feature. 
  
@@ -278,7 +281,7 @@ As mentioned in section~\ref{ssec:plsRegressor}, the LOGO-CV training scheme pro
 
 According with figure~\ref{fig:plsrStatistics}~(a), the PLSR model with $6$ LVs provides better performance during the LOGO-CV scheme. Therefore, this model was used to produce predictions on the training dataset. In this process, repetitions for $20\%$, $30\%$, $50\%$, $70\%$ and $96\%$ samples were part of the training dataset and the $20\%$ of these repetitions were kept aside for performance evaluation.
 
-Figure~\ref{fig:plsrResults}~(a) shows the predictions of the PLSR model for the repetitions of the training dataset kept aside. The RMSE in CV (RMSECV) got close to $3.62$~$\sqrt{\%}$ with R$^{2}$ coefficient of $0.98$. The Limits of Agreement (LoA) were calculated using Blant-Altmand method for the $95\%$ of Confident Interval resulting in $13.5\%$ deviation from linear prediction.
+Figure~\ref{fig:plsrResults}~(a) shows the predictions of the PLSR model for the repetitions of the training dataset kept aside. The RMSE in CV (RMSECV) got close to $3.62$~$\%$ with R$^{2}$ coefficient of $0.98$. The Limits of Agreement (LoA) were calculated using Blant-Altmand method for the $95\%$ of Confident Interval resulting in $13.5\%$ deviation from linear prediction.
  
 \subsubsection{Performance in Test}
 \label{sssec:perfTest}
@@ -287,7 +290,7 @@ Despite the test during training is performed with repetitions that the LOGO-CV 
 
 In section~\ref{ssec:mlWorkflow}, the database was divided into training dataset and test dataset. The test dataset contained the repetitions of $40\%$, $60\%$ and $80\%$ samples. This dataset was used to obtain predictions with the PLSR model and evaluate its performance against "blind" samples.
 
-Figure~\ref{fig:plsrResults}~(b) shows the predictions obtained for the test dataset. These predictions produced a RMSE in Prediction (RMSEP) about $3.7$~$\sqrt{\%}$, very close to the RMSECV, with a R$^{2}$ coefficient of $0.98$. The LoAs were calculated in the same way presented in previous section, resulting in a LoA~$\sim14.2\%$ with a $95\%$ of Confident Interval. 
+Figure~\ref{fig:plsrResults}~(b) shows the predictions obtained for the test dataset. These predictions produced a RMSE in Prediction (RMSEP) about $3.7$~$\%$, very close to the RMSECV, with a R$^{2}$ coefficient of $0.98$. The LoAs were calculated in the same way presented in previous section, resulting in a LoA~$\sim14.2\%$ with a $95\%$ of Confident Interval. 
 
 The PLSR models showed a $1.5\%$ bias when predicting the concentrations of the test dataset and the LoAs increased also $\sim1\%$ with respect to the LoAs obtained in training. 
 
@@ -300,13 +303,13 @@ In this contribution, the impact of using Machine Learning Algorithms when measu
 
 For a bench-top system like the presented in section~\ref{sec:csrrbenchTop} the measurement procedure and the commercial vials used regularly in laboratories, introduce a considerable variability across repetitions. In the literature, this variability is managed, either enhancing the hardware of the system, which might be impossible in many of the cases due to the increase in hardware cost, or designing ad-hoc solutions specifically designed for reducing variability, as it happens with the vials used in the experiments~\cite{Omer2020, Omer2021}. 
 
-However, it has been demonstrated in section~\ref{ssec:sysCharac} that repeating measurements of samples, even considering different vials, results in datasets with large standard deviations and it is expected that a simple curve fitting will fail in predicting the concentration of the SUT. In particular, the presented system, measurement procedure and commercial vials resulted in a curve-fitting based model with an RMSE of $7.62$~$\sqrt{\%}$. These result shows that an univariant analysis of the S$_{21}$ parameter of the CSRR sensor is not enough for predicting the concentration of the SUT in these type of systems. If the system is used for biomedical applications in laboratories working as benchtop device a multivariate analysis is needed. 
+However, it has been demonstrated in section~\ref{ssec:sysCharac} that repeating measurements of samples, even considering different vials, results in datasets with large standard deviations and it is expected that a simple curve fitting will fail in predicting the concentration of the SUT. In particular, the presented system, measurement procedure and commercial vials resulted in a curve-fitting based model with an RMSE of $7.62$~$\%$. These result shows that an univariant analysis of the S$_{21}$ parameter of the CSRR sensor is not enough for predicting the concentration of the SUT in these type of systems. If the system is used for biomedical applications in laboratories working as benchtop device a multivariate analysis is needed. 
 
 As demonstrated in section~\ref{ssec:plsRegressor}, the application of ML algorithms might mitigate the observed lack of accuracy when using univariate models.  Furthermore, an oriented and extensive sampling ($455$ repetitions), that provides useful datasets (see section~\ref{ssec:mlMeasurement}), and a previous exploration of the obtained datasets, as explained in section~\ref{ssec:pcaAnalysis}, lead to a better understanding of the behaviour of CSRR bench-top systems. It also orientate to the proper prediction model useful for the application and the final use.
 
 In particular, for the benchmark problem of ethanol concentration diluted in clean water, the PCA shows the variability of the dataset concentrated around 4 Principal Components (PCs), as it is shown in figure~\ref{fig:pcaAnalysis}. The first PC is clearly related to the ethanol concentration in the solution, while the rest of the PCs might be related to the variability introduced by the commercial vials and the measurement procedure. Furthermore, the training evolution of the PLSR model showed that 6 LVs minimized the RMSECV and the VIP scores analysis confirmed the multivariate nature of the problem.
  
-In fact, the trained PLSR model trained with the workflow presented in section~\ref{ssec:mlWorkflow}, shows a better performance than the univariate model. In particular, a reduction by a factor of $\sim2$ in the RMSE at test (RMSEP $=3.74$~$\sqrt{\%}$). Also, the LoAs are stable over the range of concentrations considered in the test dataset and very similar at training and test. This behaviour in training and test shows the robustness of the PLSR model compared with the quantification models presented in the literature. 
+In fact, the trained PLSR model trained with the workflow presented in section~\ref{ssec:mlWorkflow}, shows a better performance than the univariate model. In particular, a reduction by a factor of $\sim2$ in the RMSE at test (RMSEP $=3.74$~$\%$). Also, the LoAs are stable over the range of concentrations considered in the test dataset and very similar at training and test. This behaviour in training and test shows the robustness of the PLSR model compared with the quantification models presented in the literature. 
 
 \section{Conclusions}
 \label{sec:conclusion}
